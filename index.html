@@ -20,15 +20,23 @@
                 <li><a href="#case-studies">Case Studies</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#team">Our Team</a></li>
-                <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#contact" class="contact-button">Contact Us</a>
             <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="section hero parallax">
-            <div class="container animate">
+        <section id="home" class="section hero">
+            <div class="hero-image" style="background-image: url('hero.webp');"></div>
+            <div class="hero-overlay">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">
+                    <circle cx="100" cy="100" r="80" fill="rgba(255, 165, 0, 0.5)" />
+                    <circle cx="300" cy="200" r="100" fill="rgba(255, 69, 0, 0.5)" />
+                    <circle cx="500" cy="150" r="120" fill="rgba(255, 140, 0, 0.5)" />
+                </svg>
+            </div>
+            <div class="hero-content container">
                 <h1>Elevate Your Salesforce Experience</h1>
                 <p>nimby delivers expert Salesforce managed services to optimize your CRM investment and drive business growth.</p>
                 <a href="#contact" class="cta-button">Get Started</a>
@@ -70,7 +78,7 @@
                         <!-- <a href="#" class="read-more">Read More</a> -->
                     </div>
                     <div class="case-study-item">
-                        <img src="consulting3.jpg" alt="StartUp Inc. Lightning Migration">
+                        <img src="consulting3.jpg" alt="Terralink Inc. Lightning Migration">
                         <h3>StartUp Inc. Lightning Migration</h3>
                         <p>Seamless transition resulting in 25% faster load times and improved user experience.</p>
                         <!-- <a href="#" class="read-more">Read More</a> -->
