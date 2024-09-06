@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nimby - Salesforce Managed Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo-link">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="80" viewBox="0 0 160 80">
+                    <image x="0" y="0" width="60" height="80" xlink:href="logo.png" />
+                    <text x="70" y="50" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#FF4136">nimby</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="section hero parallax">
+            <div class="container animate">
+                <h1>Elevate Your Salesforce Experience</h1>
+                <p>nimby delivers expert Salesforce managed services to optimize your CRM investment and drive business growth.</p>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
+            <div class="container animate">
+                <h2>Our Services</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>Strategic Planning</h3>
+                        <p>Align your Salesforce implementation with your business goals.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Salesforce Optimization</h3>
+                        <p>Enhance your Salesforce instance for peak performance.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Ongoing Support</h3>
+                        <p>Access our team of certified Salesforce professionals.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Lightning Migration</h3>
+                        <p>Seamlessly transition to Salesforce Lightning Experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="section case-studies">
+            <div class="container animate">
+                <h2>Success Stories</h2>
+                <div class="case-study-grid">
+                    <div class="case-study-item">
+                        <img src="consulting2.jpeg" alt="Global Corp Salesforce Optimization">
+                        <h3>Global Corp Salesforce Optimization</h3>
+                        <p>Increased efficiency by 40% through custom automation and streamlined workflows.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                    <div class="case-study-item">
+                        <img src="consulting3.jpg" alt="StartUp Inc. Lightning Migration">
+                        <h3>StartUp Inc. Lightning Migration</h3>
+                        <p>Seamless transition resulting in 25% faster load times and improved user experience.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container animate">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About nimby</h2>
+                        <p>At nimby, we're passionate about helping businesses leverage the full potential of Salesforce. Our team of certified experts brings years of experience in Salesforce implementation, customization, and optimization.</p>
+                        <p>We believe in building long-term partnerships with our clients, ensuring their Salesforce instance evolves with their business needs.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="consulting1.jpeg" alt="nimby Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="section team">
+            <div class="container animate">
+                <h2>Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="team1.jpeg" alt="John Doe">
+                        <h3>Michael Payne</h3>
+                        <p>Co-Founder</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="team2.jpeg" alt="Jane Smith">
+                        <h3>Spyridon Pallis</h3>
+                        <p>Co-Founder</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container animate">
+                <h2>Get in Touch</h2>
+                <form id="contact-form" action="https://formspree.io/f/mpwanjgv" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+                <div id="form-status"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2024 nimby - Salesforce Managed Services. All rights reserved.</p>
+                    <p>Miami, FL</p>
+                    <p>Phone: +1 (239) 331-1680</p>
+                    <p>Email: info@nimbyconsulting.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/nimby-salesforce-consulting/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+                
+            </div>
+            <div class="footer-bottom">
+                <p>10x Salesforce Certified</p>
+                <img src="certs.png" alt="Salesforce Partner Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    formStatus.innerHTML = "Thanks for your submission!";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.innerHTML = "Oops! There was a problem submitting your form";
+                        }
+                    });
+                }
+            }).catch(error => {
+                formStatus.innerHTML = "Oops! There was a problem submitting your form";
+            });
+        });
+
+        const sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight * 0.75) {
+                    section.classList.add('show');
+                }
+            });
+        });
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
