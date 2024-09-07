@@ -10,12 +10,59 @@
     <style>
         .container {
             margin: 0 auto;
+            padding: 0 15px;
         }
         .case-study-content {
             display: flex;
             flex-wrap: wrap;
         }
-
+        .case-study-chart {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .case-study-chart {
+                max-width: 100%;
+            }
+        }
+        .key-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .stat-item {
+            text-align: center;            
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF4136;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF4136;
+        }
+        .challenge-card {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .challenge-card h3 {
+            color: #FF4136;
+            margin-top: 0;
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #FF4136;
+            padding-left: 1rem;
+            margin-left: 0;
+        }
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -103,7 +150,6 @@
             </div>
         </section>
 
-
         <section class="section case-study-testimonial">
             <div class="container animate">
                 <blockquote>
@@ -141,14 +187,14 @@
                 type: 'bar',
                 data: {
                     labels: [
-                        'Data sync efficiency increase',
-                        'Reduction in data discrepancies',
-                        'Improvement in carbon credit tracking',
-                        'Increase in sales team productivity',
-                        'Reduction in duplicate records'
+                        'Data sync efficiency',
+                        'Data discrepancies',
+                        'Carbon credit tracking',
+                        'Sales team productivity',
+                        'Duplicate records'
                     ],
                     datasets: [{
-                        label: 'Percentage',
+                        label: 'Improvement',
                         data: [95, 85, 75, 60, 50],
                         backgroundColor: 'rgb(255,69,0)',
                         borderColor: 'rgba(75, 192, 192, 1)',
@@ -158,6 +204,7 @@
                 options: {
                     indexAxis: 'y',
                     responsive: true,
+                    maintainAspectRatio: false,
                     plugins: {
                         legend: {
                             display: false
@@ -177,6 +224,13 @@
                             ticks: {
                                 callback: function(value) {
                                     return value + '%';
+                                }
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return this.getLabelForValue(value).split(' ').slice(0, 3).join(' ');
                                 }
                             }
                         }

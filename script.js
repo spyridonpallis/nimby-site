@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const navItems = navLinks.querySelectorAll('li');
+    const navItems = navLinks.querySelectorAll('li a');
     const logoLink = document.querySelector('.logo-link');
 
     // Toggle mobile menu
@@ -25,7 +25,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle resize event
+    // Close the menu and scroll to section on nav link click
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.querySelector(this.getAttribute('href'));
+
+            // Close the dropdown menu
+            navLinks.classList.remove('show');
+            menuToggle.classList.remove('active');
+
+            // Remove animation styles when the menu closes
+            navItems.forEach(navItem => {
+                navItem.style.transitionDelay = '0ms';
+                navItem.style.opacity = '0';
+                navItem.style.transform = 'translateY(-10px)';
+            });
+
+            // Scroll to the target section smoothly
+            targetSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Handle resize event (close menu when switching to desktop view)
     function handleResize() {
         if (window.innerWidth > 768) {
             navLinks.classList.remove('show');
@@ -39,29 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add resize event listener
     window.addEventListener('resize', handleResize);
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-
-            // Close mobile menu if it's open
-            if (navLinks.classList.contains('show')) {
-                navLinks.classList.remove('show');
-                menuToggle.classList.remove('active');
-                
-                navItems.forEach(item => {
-                    item.style.transitionDelay = '0ms';
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(-10px)';
-                });
-            }
-        });
-    });
 
     // Home redirect when logo is clicked
     logoLink.addEventListener('click', function(e) {
@@ -77,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Here you would typically send the form data to a server
             alert('Thank you for your message. We will get back to you soon!');
             contactForm.reset();
         });
