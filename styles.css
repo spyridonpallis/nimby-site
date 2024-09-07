@@ -636,12 +636,6 @@ html {
     color: var(--white);
 }
 
-/* Case Study Page Styles */
-.case-study-overview, .case-study-challenges, .case-study-results, .case-study-testimonial {
-    padding: 100px 0;
-}
-
-
 
 .case-study-content {
     display: flex;
