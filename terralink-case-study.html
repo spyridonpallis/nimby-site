@@ -6,6 +6,18 @@
     <title>Terralink Inc. Case Study - nimby Consulting</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="case-study-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .case-study-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -85,38 +97,8 @@
             <div class="container animate">
                 <h2>Results and Impact</h2>
                 <div class="case-study-content">
-                    <div class="case-study-image">
-                        <img src="terralink2.jpg" alt="Terralink data dashboard">
-                    </div>
                     <div class="case-study-chart">
-                        <h3>Key Performance Improvements</h3>
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <span class="bar-label">Data sync efficiency increase</span>
-                                <div class="bar" style="width: 95%;"></div>
-                                <span class="bar-value">95%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Reduction in data discrepancies</span>
-                                <div class="bar" style="width: 85%;"></div>
-                                <span class="bar-value">85%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Improvement in carbon credit tracking</span>
-                                <div class="bar" style="width: 75%;"></div>
-                                <span class="bar-value">75%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Increase in sales team productivity</span>
-                                <div class="bar" style="width: 60%;"></div>
-                                <span class="bar-value">60%</span>
-                            </div>
-                            <div class="bar-item">
-                                <span class="bar-label">Reduction in duplicate records</span>
-                                <div class="bar" style="width: 50%;"></div>
-                                <span class="bar-value">50%</span>
-                            </div>
-                        </div>
+                        <canvas id="performanceChart"></canvas>
                     </div>
                 </div>
             </div>
@@ -152,6 +134,57 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Data sync efficiency increase',
+                        'Reduction in data discrepancies',
+                        'Improvement in carbon credit tracking',
+                        'Increase in sales team productivity',
+                        'Reduction in duplicate records'
+                    ],
+                    datasets: [{
+                        label: 'Percentage',
+                        data: [95, 85, 75, 60, 50],
+                        backgroundColor: 'rgb(255,69,0)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.x + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');

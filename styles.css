@@ -656,7 +656,7 @@ html {
 }
 
 .stat-item {
-    text-align: center;
+    text-align: left;
 }
 
 .stat-number {
@@ -712,11 +712,20 @@ html {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.case-study-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 0; /* Removes extra space below inline images */
+}
+
 .case-study-image img {
-    width: 100%;
+    border: 3px solid rgba(255, 69, 0, 0.7); /* Red border */
+    max-width: 100%; /* Change from width to max-width */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: block; /* Ensures no extra space below the image */
 }
 
 /* Chart Styles */
