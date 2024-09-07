@@ -636,4 +636,183 @@ html {
     color: var(--white);
 }
 
+/* Case Study Page Styles */
+.case-study-overview, .case-study-challenges, .case-study-results, .case-study-testimonial {
+    padding: 100px 0;
+}
+
+
+
+.case-study-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.key-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #FF4136; /* nimby's primary color */
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .case-study-content {
+        flex-direction: column;
+    }
+}
+
+.case-study-overview {
+    background-color: var(--light-gray);
+}
+
+.case-study-challenges {
+    background-color: var(--white);
+}
+
+.case-study-results {
+    background-color: var(--light-gray);
+}
+
+.case-study-testimonial {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.case-study-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.case-study-text {
+    flex: 1;
+}
+
+.case-study-image {
+    flex: 0 0 40%;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.case-study-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart Styles */
+.case-study-chart {
+    flex: 1;
+}
+
+.bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bar-item {
+    display: flex;
+    align-items: center;
+}
+
+.bar-label {
+    flex: 0 0 50%;
+    text-align: right;
+    padding-right: 20px;
+    font-weight: bold;
+}
+
+.bar {
+    flex: 0 0 40%;
+    height: 30px;
+    background-color: var(--primary-color);
+    border-radius: 0px;
+}
+
+.bar-value {
+    flex: 0 0 10%;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+/* Testimonial */
+.case-study-testimonial blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .case-study-content {
+        flex-direction: column;
+    }
+
+    .bar-label {
+        flex: 0 0 40%;
+    }
+
+    .bar {
+        flex: 0 0 90%;
+    }
+
+    .bar-value {
+        flex: 0 0 10%;
+    }
+}
+
+.case-study-challenges .case-study-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.challenge-card {
+    background-color: #ffffff;
+    border: 2px solid #FFD700; /* Yellow outline */
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.challenge-card h3 {
+    color: #FF4136; /* nimby's primary color */
+    margin-bottom: 1rem;
+}
+
+.challenge-card p {
+    color: #333;
+    line-height: 1.6;
+}
 
