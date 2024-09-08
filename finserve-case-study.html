@@ -13,7 +13,63 @@
             max-width: 800px;
             margin: 0 auto;
             height: 400px;
-        }    </style>
+        }    
+        .container {
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .case-study-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .case-study-chart {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 400px;
+        }
+        @media (max-width: 768px) {
+            .case-study-chart {
+                max-width: 100%;
+            }
+        }
+        .key-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+        .stat-item {
+            text-align: center;            
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF4136;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FF4136;
+        }
+        .challenge-card {
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .challenge-card h3 {
+            color: #FF4136;
+            margin-top: 0;
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #FF4136;
+            padding-left: 1rem;
+            margin-left: 0;
+        }
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+        }</style>
 </head>
 <body>
     <header>
@@ -142,26 +198,26 @@
                         'Client Satisfaction'
                     ],
                     datasets: [{
-                        label: 'Improvement Percentage',
-                        data: [85, 70, 60, 75, 80],
+                        label: 'Improvement',
+                        data: [95, 85, 75, 60, 50],
                         backgroundColor: 'rgb(255,69,0)',
-                        borderColor: 'rgb(255, 65, 54)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    indexAxis: 'y', // This makes the bars horizontal
+                    indexAxis: 'y',
                     responsive: true,
                     maintainAspectRatio: false,
                     plugins: {
                         legend: {
-                            display: false, // Hide the legend as it's not needed for a single dataset
+                            display: false
                         },
-                        title: {
-                            display: true,
-                            color: '#FF4136', // Matching the red theme
-                            font: {
-                                size: 18
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.x + '%';
+                                }
                             }
                         }
                     },
@@ -172,19 +228,14 @@
                             ticks: {
                                 callback: function(value) {
                                     return value + '%';
-                                },
-                                color: '#FF4136' // Matching the red theme
-                            },
-                            grid: {
-                                color: 'rgba(255, 65, 54, 0.1)' // Light red grid lines
+                                }
                             }
                         },
                         y: {
                             ticks: {
-                                color: '#FF4136' // Matching the red theme
-                            },
-                            grid: {
-                                display: false // Hide horizontal grid lines for cleaner look
+                                callback: function(value, index, values) {
+                                    return this.getLabelForValue(value).split(' ').slice(0, 3).join(' ');
+                                }
                             }
                         }
                     }
