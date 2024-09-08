@@ -23,11 +23,6 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        @media (max-width: 768px) {
-            .chart-container {
-                max-width: 100%;
-            }
-        }
         .key-stats {
             display: flex;
             justify-content: space-between;
@@ -121,6 +116,48 @@
             background-color: var(--primary-color);
             color: var(--white);
         }
+
+        @media (max-width: 768px) {
+            .service-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .service-image {
+                flex: 0 0 100%;
+            }
+            .key-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-item {
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            .sla-table {
+                font-size: 0.9rem;
+            }
+            .sla-table th, .sla-table td {
+                padding: 8px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            blockquote {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -201,42 +238,44 @@
             <div class="container animate">
                 <h2>Our Service Level Agreements (SLAs)</h2>
                 <p>We are committed to providing exceptional Salesforce support services. Our SLAs are designed to ensure rapid response times, efficient issue resolution, and proactive system maintenance.</p>
-                <table class="sla-table">
-                    <thead>
-                        <tr>
-                            <th>Priority Level</th>
-                            <th>Description</th>
-                            <th>Initial Response Time</th>
-                            <th>Resolution Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>P1 - Critical</td>
-                            <td>System down or critical functionality unavailable</td>
-                            <td>&lt; 15 minutes</td>
-                            <td>&lt; 4 hours</td>
-                        </tr>
-                        <tr>
-                            <td>P2 - High</td>
-                            <td>Major feature/function failure</td>
-                            <td>&lt; 30 minutes</td>
-                            <td>&lt; 8 hours</td>
-                        </tr>
-                        <tr>
-                            <td>P3 - Medium</td>
-                            <td>Minor feature/function failure</td>
-                            <td>&lt; 2 hours</td>
-                            <td>&lt; 24 hours</td>
-                        </tr>
-                        <tr>
-                            <td>P4 - Low</td>
-                            <td>General guidance or information requested</td>
-                            <td>&lt; 4 hours</td>
-                            <td>&lt; 48 hours</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="sla-table">
+                        <thead>
+                            <tr>
+                                <th>Priority Level</th>
+                                <th>Description</th>
+                                <th>Initial Response Time</th>
+                                <th>Resolution Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>P1 - Critical</td>
+                                <td>System down or critical functionality unavailable</td>
+                                <td>&lt; 15 minutes</td>
+                                <td>&lt; 4 hours</td>
+                            </tr>
+                            <tr>
+                                <td>P2 - High</td>
+                                <td>Major feature/function failure</td>
+                                <td>&lt; 30 minutes</td>
+                                <td>&lt; 8 hours</td>
+                            </tr>
+                            <tr>
+                                <td>P3 - Medium</td>
+                                <td>Minor feature/function failure</td>
+                                <td>&lt; 2 hours</td>
+                                <td>&lt; 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>P4 - Low</td>
+                                <td>General guidance or information requested</td>
+                                <td>&lt; 4 hours</td>
+                                <td>&lt; 48 hours</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
