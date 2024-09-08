@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ongoing Support Services and SLAs - nimby Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .container {
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        .service-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px;
+        }
+        .chart-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                max-width: 100%;
+            }
+        }
+        .key-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .stat-item {
+            text-align: left;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FF4136;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item p {
+            font-size: 1rem;
+            color: #333;
+        }
+        .support-feature, .sla-details {
+            background-color: #ffffff;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .support-feature:hover, .sla-details:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+        .support-feature h3, .sla-details h3 {
+            color: #FF4136;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        .sla-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        .sla-table th, .sla-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .sla-table th {
+            background-color: #f2f2f2;
+        }
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid #FF4136;
+            padding-left: 1rem;
+            margin-left: 0;
+        }
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+        }
+        .service-image {
+            flex: 0 0 40%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 0;
+        }
+        .service-image img {
+            border: 3px solid rgba(255, 69, 0, 0.7);
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+        .service-overview {
+            background-color: var(--light-gray);
+        }
+        .support-features {
+            background-color: var(--white);
+        }
+        .sla-details {
+            background-color: var(--light-gray);
+        }
+        .historical-performance {
+            background-color: var(--white);
+        }
+        .case-study-testimonial {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo-link">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="80" viewBox="0 0 160 80">
+                    <image x="0" y="0" width="60" height="80" xlink:href="logo.png" />
+                    <text x="70" y="50" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#FF4136">nimby</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#case-studies">Case Studies</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#team">Our Team</a></li>
+            </ul>
+            <a href="#contact" class="contact-button">Contact Us</a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section service-overview">
+            <div class="container animate">
+                <h1>Ongoing Support Services: Empowering Your Salesforce Success</h1>
+                <div class="service-content">
+                    <div class="service-text">
+                        <p>At nimby, we understand that your Salesforce instance is a critical component of your business operations. Our Ongoing Support Services ensure that your Salesforce environment remains optimized, secure, and aligned with your evolving business needs.</p>
+                        <p>With a team of certified Salesforce professionals at your disposal, we provide comprehensive support to maximize your CRM investment and drive continuous improvement.</p>
+                        
+                        <div class="key-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">99.9%</span>
+                                <p>SLA Compliance Rate</p>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">&lt;15 min</span>
+                                <p>Average Initial Response Time</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-image">
+                        <img src="supportteam.webp" alt="nimby Support Team">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section support-features">
+            <div class="container animate">
+                <h2>Comprehensive Support Features</h2>
+                <div class="service-content">
+                    <div class="support-feature">
+                        <h3>1. 24/7 Technical Support</h3>
+                        <p>Our dedicated support team is available around the clock to address any Salesforce-related issues, ensuring minimal disruption to your business operations.</p>
+                    </div>
+                    
+                    <div class="support-feature">
+                        <h3>2. Proactive Monitoring and Maintenance</h3>
+                        <p>We continuously monitor your Salesforce instance, identifying and resolving potential issues before they impact your business.</p>
+                    </div>
+                    
+                    <div class="support-feature">
+                        <h3>3. Regular Health Checks and Optimization</h3>
+                        <p>Our experts conduct periodic assessments of your Salesforce environment, providing recommendations for performance improvements and best practices implementation.</p>
+                    </div>
+                    
+                    <div class="support-feature">
+                        <h3>4. User Training and Enablement</h3>
+                        <p>We offer ongoing training sessions to ensure your team stays up-to-date with the latest Salesforce features and functionalities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section sla-details">
+            <div class="container animate">
+                <h2>Our Service Level Agreements (SLAs)</h2>
+                <p>We are committed to providing exceptional Salesforce support services. Our SLAs are designed to ensure rapid response times, efficient issue resolution, and proactive system maintenance.</p>
+                <table class="sla-table">
+                    <thead>
+                        <tr>
+                            <th>Priority Level</th>
+                            <th>Description</th>
+                            <th>Initial Response Time</th>
+                            <th>Resolution Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>P1 - Critical</td>
+                            <td>System down or critical functionality unavailable</td>
+                            <td>&lt; 15 minutes</td>
+                            <td>&lt; 4 hours</td>
+                        </tr>
+                        <tr>
+                            <td>P2 - High</td>
+                            <td>Major feature/function failure</td>
+                            <td>&lt; 30 minutes</td>
+                            <td>&lt; 8 hours</td>
+                        </tr>
+                        <tr>
+                            <td>P3 - Medium</td>
+                            <td>Minor feature/function failure</td>
+                            <td>&lt; 2 hours</td>
+                            <td>&lt; 24 hours</td>
+                        </tr>
+                        <tr>
+                            <td>P4 - Low</td>
+                            <td>General guidance or information requested</td>
+                            <td>&lt; 4 hours</td>
+                            <td>&lt; 48 hours</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section historical-performance">
+            <div class="container animate">
+                <h2>Historical Performance</h2>
+                <p>Our team consistently outperforms industry standards, maintaining an average SLA compliance rate of 99.9% over the past 12 months.</p>
+                <div class="chart-container">
+                    <canvas id="slaChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-testimonial">
+            <div class="container animate">
+                <blockquote>
+                    "nimby's ongoing support has been instrumental in maximizing our Salesforce ROI. Their proactive approach and deep expertise have helped us avoid potential issues and continuously improve our CRM capabilities."
+                </blockquote>
+                <p class="testimonial-author">- Mark Thompson, CIO, TechInnovate Solutions</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2024 nimby - Salesforce Managed Services. All rights reserved.</p>
+                    <p>Miami, FL</p>
+                    <p>Phone: +1 (239) 331-1680</p>
+                    <p>Email: info@nimbyconsulting.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/nimby-salesforce-consulting/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>10x Salesforce Certified</p>
+                <img src="certs.png" alt="Salesforce Partner Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('slaChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'SLA Compliance Rate',
+                        data: [99.8, 99.9, 100, 99.9, 99.9, 99.8, 100, 99.9, 99.9, 100, 99.9, 99.9],
+                        borderColor: 'rgb(255,69,0)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 99,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        });
+
+        // Additional scripts (if any) remain the same
+    </script>
+</body>
+</html>
