@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinServe Solutions Case Study - nimby Consulting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="case-study-styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .case-study-chart {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 400px;
+        }    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo-link">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="80" viewBox="0 0 160 80">
+                    <image x="0" y="0" width="60" height="80" xlink:href="logo.png" />
+                    <text x="70" y="50" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#FF4136">nimby</text>
+                </svg>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#case-studies">Case Studies</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#team">Our Team</a></li>
+            </ul>
+            <a href="#contact" class="contact-button">Contact Us</a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section case-study-overview">
+            <div class="container animate">
+                <h1>FinServe Solutions: Elevating Financial Services with Salesforce Excellence</h1>
+                <div class="case-study-content">
+                    <div class="case-study-text">
+                        <p>FinServe Solutions, a leading financial services provider, partnered with nimby to revolutionize their Salesforce implementation and optimize their business processes. Our collaboration spanned multiple departments, enhancing efficiency and client satisfaction across the organization.</p>
+                        
+                        <div class="key-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">40%</span>
+                                <p>Increase in sales team productivity</p>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">30%</span>
+                                <p>Improvement in forecasting accuracy</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-study-image">
+                        <img src="finserve.jpg" alt="FinServe Solutions office">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-challenges">
+            <div class="container animate">
+                <h2>Key Initiatives and Solutions</h2>
+                <div class="case-study-content">
+                    <div class="challenge-card">
+                        <h3>1. Comprehensive User Training Program</h3>
+                        <p>We developed and implemented a tailored user training program, ensuring all FinServe employees could effectively leverage Salesforce's capabilities. This initiative significantly reduced user errors and improved adoption rates across the organization.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>2. Sales Process Optimization</h3>
+                        <p>Our team worked closely with FinServe's sales leadership to streamline and automate their sales processes within Salesforce. This included creating custom opportunity stages, implementing approval workflows, and developing automated task creation to ensure consistent follow-ups.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>3. Custom Lightning Web Components</h3>
+                        <p>We designed and built several custom Lightning Web Components to address FinServe's unique needs. These included a real-time market data dashboard, a client portfolio analyzer, and a risk assessment calculator, all seamlessly integrated within their Salesforce environment.</p>
+                    </div>
+                    
+                    <div class="challenge-card">
+                        <h3>4. Executive Dashboards and Forecasting</h3>
+                        <p>Leveraging Salesforce's reporting capabilities, we created comprehensive executive dashboards providing real-time insights into key performance indicators. Additionally, we implemented advanced forecasting models, significantly improving the accuracy of FinServe's financial projections.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-results">
+            <div class="container animate">
+                <h2>Results and Impact</h2>
+                <div class="case-study-content">
+                    <div class="case-study-chart">
+                        <canvas id="efficiencyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-study-testimonial">
+            <div class="container animate">
+                <blockquote>
+                    "nimby's expertise in Salesforce managed services has been transformative for FinServe Solutions. Their holistic approach to optimization, from user training to custom development, has significantly enhanced our operational efficiency and client service capabilities."
+                </blockquote>
+                <p class="testimonial-author">- Michael Chen, COO, FinServe Solutions</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>© 2024 nimby - Salesforce Managed Services. All rights reserved.</p>
+                    <p>Miami, FL</p>
+                    <p>Phone: +1 (239) 331-1680</p>
+                    <p>Email: info@nimbyconsulting.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/nimby-salesforce-consulting/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>10x Salesforce Certified</p>
+                <img src="certs.png" alt="Salesforce Partner Logo">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('efficiencyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'User Adoption',
+                        'Process Automation',
+                        'Data Quality',
+                        'Reporting Efficiency',
+                        'Client Satisfaction'
+                    ],
+                    datasets: [{
+                        label: 'Improvement Percentage',
+                        data: [85, 70, 60, 75, 80],
+                        backgroundColor: 'rgb(255,69,0)',
+                        borderColor: 'rgb(255, 65, 54)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', // This makes the bars horizontal
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false, // Hide the legend as it's not needed for a single dataset
+                        },
+                        title: {
+                            display: true,
+                            color: '#FF4136', // Matching the red theme
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                },
+                                color: '#FF4136' // Matching the red theme
+                            },
+                            grid: {
+                                color: 'rgba(255, 65, 54, 0.1)' // Light red grid lines
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: '#FF4136' // Matching the red theme
+                            },
+                            grid: {
+                                display: false // Hide horizontal grid lines for cleaner look
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
