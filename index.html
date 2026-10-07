@@ -468,17 +468,6 @@ section{scroll-margin-top:88px}
           <rect class="rf rf2" x="205" y="374" width="190" height="4"/>
           <rect class="rf rf3" x="255" y="392" width="90" height="3"/>
         </svg>
-        <div class="notice">
-          <div class="notice-top"><span class="eyebrow-sm">Renewal notice</span><span class="pill">Example</span></div>
-          <p class="notice-tool">Backup and archive add-on</p>
-          <dl class="notice-dl">
-            <div><dt>Auto-renews</dt><dd id="hn-renew">Dec 12, 2026</dd></div>
-            <div><dt>Notice window</dt><dd>60 days</dd></div>
-            <div class="hot"><dt>Send notice by</dt><dd id="hn-due">Oct 13, 2026</dd></div>
-          </dl>
-          <div class="meter"><span id="hn-meter" style="width:30%"></span></div>
-          <div class="notice-foot"><span id="hn-days">9 days left</span><span>$16,000 a year</span></div>
-        </div>
       </div>
     </div>
     <div class="wrap">
@@ -817,13 +806,9 @@ section{scroll-margin-top:88px}
     if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
   });
 
-  // Hero example card: a tool that renews 69 days out on a 60-day notice clause
+  // Example for the notice-date check: a tool that renews 69 days out
   var t = today();
-  var heroRenew = addDays(t, 69), heroDue = addDays(heroRenew, -60), heroLeft = daysBetween(t, heroDue);
-  $('hn-renew').textContent = fmtDate(heroRenew);
-  $('hn-due').textContent = fmtDate(heroDue);
-  $('hn-days').textContent = heroLeft + ' days left';
-  $('hn-meter').style.width = Math.max(4, Math.min(100, heroLeft / 30 * 100)) + '%';
+  var heroRenew = addDays(t, 69);
 
   // Notice-date check
   var ndRenew = $('nd-renew'), ndWin = $('nd-window');
