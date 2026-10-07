@@ -1,226 +1,947 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nimby - Salesforce Managed Services</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nimby Consulting | Salesforce add-on and integration sunsets</title>
+<meta name="description" content="Nimby retires the Salesforce add-ons and integrations you've outgrown, rebuilds what you use inside Salesforce, and gets your non-renewal notice in before the deadline. Free 30-minute renewal review.">
+<link rel="canonical" href="https://www.nimbyconsulting.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#C8321F">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nimby Consulting">
+<meta property="og:title" content="Retire the Salesforce add-ons you've outgrown">
+<meta property="og:description" content="Nimby retires the Salesforce add-ons and integrations you've outgrown, rebuilds what you use inside Salesforce, and gets your non-renewal notice in before the deadline. Free 30-minute renewal review.">
+<meta property="og:url" content="https://www.nimbyconsulting.com/">
+<meta property="og:image" content="https://www.nimbyconsulting.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<style>[hidden]{display:none!important}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Big Four editorial. Slim utility bar, sticky nav, a white hero with a geometric setting sun, paper and wash bands on a wide grid, one bold red results band, ink footer. */
+:root{
+  --paper:#FFFFFF;
+  --wash:#F4F2F0;
+  --card:#FFFFFF;
+  --chip:#EFECE9;
+  --ink:#161413;
+  --ink-soft:#57514C;
+  --rule:#E3DED9;
+  --field:#8C847E;
+  --field-bg:#FFFFFF;
+  --accent:#C8321F;
+  --btn:#C8321F;
+  --btn-hover:#A82816;
+  --btn-ink:#FFFFFF;
+  --sun-1:#FFB700;
+  --sun-2:#FF7A5C;
+  --sun-3:#EB4430;
+  --sun-4:#C8321F;
+  --sun-o:#FF8C00;
+  --on-sun:#161413;
+  --band:#C8321F;
+  --band-ink:#FFFFFF;
+  --band-soft:#FFF1EE;
+  --deep:#161413;
+  --deep-ink:#F3EFEB;
+  --deep-soft:#A39B94;
+  --deep-rule:#3A3531;
+  --focus:#161413;
+  --ok:#1E7A46;
+  --warn:#9A4F00;
+  --shadow:0 28px 56px -28px rgba(22,20,19,.38);
+  --f-display:"Charis SIL", Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --f-body:"Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --gutter:clamp(16px, 4vw, 48px);
+  --max:1240px;
+  --section:clamp(64px, 8vw, 120px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#131110; --wash:#1B1816; --card:#221E1C; --chip:#2B2624;
+    --ink:#F3EFEB; --ink-soft:#B5ADA6; --rule:#36312D; --field:#7A726B; --field-bg:#161312;
+    --accent:#FF7A66; --btn:#C8321F; --btn-hover:#A82816; --btn-ink:#FFFFFF;
+    --sun-1:#FFB700; --sun-2:#FF7A5C; --sun-3:#EB4430; --sun-4:#C8321F; --on-sun:#161413; --sun-o:#FF8C00;
+    --band:#9E2817; --band-ink:#FFFFFF; --band-soft:#F7D9D3;
+    --deep:#0B0A09; --deep-ink:#F3EFEB; --deep-soft:#9C948D; --deep-rule:#2E2A27;
+    --focus:#FFB700; --ok:#5BC98A; --warn:#F2B54A;
+    --shadow:0 28px 56px -28px rgba(0,0,0,.75);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131110; --wash:#1B1816; --card:#221E1C; --chip:#2B2624;
+  --ink:#F3EFEB; --ink-soft:#B5ADA6; --rule:#36312D; --field:#7A726B; --field-bg:#161312;
+  --accent:#FF7A66; --btn:#C8321F; --btn-hover:#A82816; --btn-ink:#FFFFFF;
+  --sun-1:#FFB700; --sun-2:#FF7A5C; --sun-3:#EB4430; --sun-4:#C8321F; --on-sun:#161413; --sun-o:#FF8C00;
+  --band:#9E2817; --band-ink:#FFFFFF; --band-soft:#F7D9D3;
+  --deep:#0B0A09; --deep-ink:#F3EFEB; --deep-soft:#9C948D; --deep-rule:#2E2A27;
+  --focus:#FFB700; --ok:#5BC98A; --warn:#F2B54A;
+  --shadow:0 28px 56px -28px rgba(0,0,0,.75);
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--sun-1);color:var(--on-sun)}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+section{scroll-margin-top:88px}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.band{padding-block:var(--section);background:var(--paper)}
+.band-wash{padding-block:var(--section);background:var(--wash)}
+.display{font-family:var(--f-display);font-weight:700;letter-spacing:-.012em}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.eyebrow-sm{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.h2{font-size:clamp(2rem, 1.35rem + 2.4vw, 3.25rem);line-height:1.08;margin-top:14px}
+.sec-head{max-width:46em}
+.sec-head.row{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px 32px}
+.sec-sub{margin-top:18px;color:var(--ink-soft);font-size:1.125rem;max-width:40em}
+.prose-p{margin-top:20px;color:var(--ink-soft);max-width:34em}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--btn);color:var(--btn-ink);font:600 1rem/1.2 var(--f-body);text-decoration:none;padding:15px 24px;border:0;border-radius:2px;cursor:pointer;transition:background-color .15s}
+.btn:hover{background:var(--btn-hover)}
+.btn-sm{padding:10px 16px;font-size:.9375rem}
+.link-arrow{font-weight:600;text-decoration:none;color:var(--ink);border-bottom:2px solid var(--accent);padding-bottom:2px;white-space:nowrap}
+.link-arrow::after{content:" \2192"}
+.link-arrow:hover{color:var(--accent)}
+.pill{display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;background:var(--chip);color:var(--ink-soft);line-height:1.4}
+.pill-accent{background:var(--btn);color:var(--btn-ink)}
+
+/* utility bar + header */
+.util{background:var(--deep);color:var(--deep-soft);font-size:.8125rem}
+.util-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:8px}
+.util-links{display:flex;gap:12px;align-items:center}
+.util a{text-decoration:none;color:var(--deep-ink)}
+.util a:hover{text-decoration:underline}
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--rule)}
+.head-row{display:flex;align-items:center;gap:28px;min-height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto}
+.mark{width:46px;height:29px;flex:none;display:block}
+.mark .m1{fill:var(--sun-1)} .mark .m2{fill:var(--sun-3)} .mark .m3{fill:var(--sun-4)} .mark .mh{fill:currentColor}
+.wordmark{font-family:var(--f-display);font-weight:700;font-size:1.8rem;letter-spacing:-.025em;line-height:1}
+.nav{display:flex;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:.9375rem;color:var(--ink);padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--accent)}
+.nav .nav-cta{display:none}
+.menu-btn{display:none;align-items:center;gap:8px;font:600 .9375rem/1 var(--f-body);color:var(--ink);background:transparent;border:1px solid var(--field);border-radius:2px;padding:10px 14px;cursor:pointer}
+.menu-btn .bars-ico{display:inline-grid;gap:3px}
+.menu-btn .bars-ico i{display:block;width:16px;height:2px;background:currentColor}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,96px) clamp(36px,4vw,56px);background:var(--paper)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero-title{font-size:clamp(2.5rem, 1.3rem + 4.6vw, 5.25rem);line-height:1.02;margin-top:18px;letter-spacing:-.02em}
+.lead{font-size:clamp(1.125rem, 1rem + .45vw, 1.375rem);line-height:1.5;color:var(--ink-soft);max-width:34em;margin-top:26px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:38px}
+.hero-art{position:relative;width:100%}
+.sun{display:block;width:100%;height:auto}
+.sun .s1{fill:var(--sun-1)} .sun .s2{fill:var(--sun-2)} .sun .s3{fill:var(--sun-3)} .sun .s4{fill:var(--sun-4)}
+.sun .hz{fill:var(--ink)}
+.sun .rf{fill:var(--sun-2)} .sun .rf1{opacity:.55} .sun .rf2{opacity:.4} .sun .rf3{opacity:.28}
+.sun-body{animation:set 1.9s cubic-bezier(.2,.7,.2,1) both}
+@keyframes set{from{transform:translateY(-44px)}to{transform:translateY(0)}}
+.nw{white-space:nowrap}
+.notice{position:relative;margin:clamp(28px, 3vw, 40px) auto 0;width:78.67%;background:var(--card);border:1px solid var(--rule);box-shadow:var(--shadow);padding:16px 18px 14px;font-size:.875rem;line-height:1.45}
+.notice-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.notice-tool{font-weight:700;font-size:1rem;margin-top:8px}
+.notice-dl{margin:10px 0 0;display:grid;gap:4px}
+.notice-dl div{display:flex;justify-content:space-between;gap:12px}
+.notice-dl dt{color:var(--ink-soft)}
+.notice-dl dd{margin:0;font-variant-numeric:tabular-nums;font-weight:500}
+.notice-dl .hot dd{color:var(--accent);font-weight:700}
+.meter{height:6px;background:var(--chip);margin-top:12px}
+.meter span{display:block;height:100%;background:var(--btn)}
+.notice-foot{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.factstrip{list-style:none;margin:clamp(44px,5vw,72px) 0 0;padding:20px 0 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 32px;color:var(--ink-soft);font-size:.9375rem}
+.factstrip strong{color:var(--ink);font-weight:600}
+
+/* why */
+.split{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:start;margin-top:14px}
+.split .h2{margin-top:0}
+.prose{color:var(--ink-soft);max-width:34em;padding-top:6px}
+.prose p + p{margin-top:16px}
+.name-note{padding-top:16px;border-top:1px solid var(--rule)}
+.name-note .eyebrow-sm{display:block;margin-bottom:6px;color:var(--accent)}
+.signals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(40px,5vw,64px);border-top:2px solid var(--ink)}
+.signal{padding:22px 24px 0 0}
+.signal + .signal{padding-left:24px;border-left:1px solid var(--rule)}
+.signal p + p{margin-top:8px}
+
+/* services */
+.offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;border-top:2px solid var(--ink)}
+.offer{padding:28px 28px 0 0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.offer + .offer{padding-left:28px;border-left:1px solid var(--rule)}
+.offer-name{font-family:var(--f-body);font-size:1.375rem;font-weight:700}
+.offer-price{font-size:1.625rem;line-height:1.2;color:var(--accent)}
+.offer-body{color:var(--ink-soft)}
+.offer-foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);font-size:.9375rem}
+@supports (grid-template-rows: subgrid){
+  .offers{row-gap:12px}
+  .offer{display:grid;grid-row:span 5;grid-template-rows:subgrid}
+  .offer-foot{margin-top:0}
+}
+.pilot{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px 28px;align-items:center;margin-top:56px;padding:24px 28px;background:var(--wash)}
+.pilot-title{font-size:1.1875rem;font-weight:700;margin-bottom:4px}
+.pilot p:not(.pill){color:var(--ink-soft)}
+
+/* retire */
+.retire-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:48px}
+.retire{background:var(--card);border:1px solid var(--rule);padding:26px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.retire h3{font-size:1.1875rem;font-weight:700;line-height:1.3}
+.retire .ex{font-size:.875rem;color:var(--ink-soft)}
+.retire .swap{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule)}
+.retire .swap .eyebrow-sm{display:block;color:var(--accent);margin-bottom:4px}
+@supports (grid-template-rows: subgrid){
+  .retire{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:10px}
+  .retire .swap{margin-top:0}
+}
+
+/* approach */
+.approach{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
+.callout{font-family:var(--f-display);font-style:italic;font-size:1.5rem;line-height:1.3;margin-top:36px;max-width:16em}
+.callout::before{content:"";display:block;width:56px;height:4px;background:var(--sun-1);margin-bottom:18px}
+.steps{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:20px;padding-block:28px;border-bottom:1px solid var(--rule)}
+.step-n{font-size:2.25rem;line-height:1;color:var(--accent)}
+.step h3{font-size:1.375rem;font-weight:700;margin-bottom:8px}
+.step p{color:var(--ink-soft)}
+.deliv{margin-top:14px;font-size:.9375rem}
+.deliv .eyebrow-sm{margin-right:8px;color:var(--ink)}
+
+/* results */
+.band-red{position:relative;overflow:hidden;isolation:isolate;padding-block:var(--section);background:var(--band);color:var(--band-ink)}
+.band-red::before,.band-red::after{content:"";position:absolute;z-index:-1;border-radius:50%;aspect-ratio:1;pointer-events:none}
+.band-red::before{width:min(560px,70vw);top:-38%;right:-9%;background:var(--sun-1);opacity:.2}
+.band-red::after{width:min(440px,60vw);bottom:-46%;left:-8%;background:var(--sun-o);opacity:.18}
+.band-red .eyebrow{color:var(--band-soft)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:56px}
+.stat{border-top:2px solid var(--band-ink);padding-top:18px;min-width:0}
+.stat-n{font-size:clamp(2.5rem, 1.5rem + 2.6vw, 4rem);white-space:nowrap;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat-n span{font-family:var(--f-body);font-size:.36em;font-weight:600;letter-spacing:0;margin-left:4px}
+.stat-d{margin-top:14px;color:var(--band-soft)}
+.fine{margin-top:44px;font-size:.875rem;color:var(--band-soft);max-width:62em}
+
+/* tools */
+.tools{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:24px;margin-top:48px}
+.tool{background:var(--card);border:1px solid var(--rule);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:10px;min-width:0}
+.tool-title{font-family:var(--f-display);font-size:1.625rem;line-height:1.2;margin-bottom:8px}
+.tool label,.intake label{font-weight:600;font-size:.9375rem}
+.tool input,.tool select,.intake input,.intake textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--field-bg);border:1px solid var(--field);border-radius:2px;padding:12px 14px;width:100%;min-width:0}
+.tool select{appearance:auto}
+.money{display:flex;align-items:center;border:1px solid var(--field);background:var(--field-bg);border-radius:2px}
+.money span{padding-left:14px;color:var(--ink-soft);font-weight:600}
+.money input{border:0;background:transparent;padding-left:6px}
+.money:focus-within{outline:3px solid var(--focus);outline-offset:3px}
+.money input:focus-visible{outline:0}
+.check{display:flex;align-items:center;gap:10px;font-weight:500 !important;margin-top:4px;cursor:pointer}
+.check input{width:18px;height:18px;padding:0;accent-color:var(--btn)}
+.out{display:grid;margin:12px 0 0;border-top:1px solid var(--rule)}
+.out div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:10px;border-bottom:1px solid var(--rule)}
+.out dt{color:var(--ink-soft)}
+.out dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.out dd.big{font-family:var(--f-display);font-size:1.625rem;color:var(--accent)}
+.bars{display:grid;gap:14px;margin-top:14px}
+.bar-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;font-size:.875rem}
+.bar-label{color:var(--ink-soft)}
+.bar-val{font-weight:600;font-variant-numeric:tabular-nums}
+.bar{grid-column:1 / -1;display:block;height:14px;background:var(--chip)}
+.bar-fill{display:block;height:100%;transition:width .35s ease}
+.bar-fill.keep{background:var(--ink-soft)}
+.bar-fill.cut{background:var(--btn)}
+.tool-note{font-size:.875rem;color:var(--ink-soft);margin-top:6px}
+.tool > .tool-note:last-child{margin-top:auto;padding-top:8px}
+.calc-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 32px;align-items:start}
+.calc-in{display:flex;flex-direction:column;gap:10px;min-width:0}
+.calc-body .out{margin-top:0}
+.due{background:var(--wash);padding:18px 20px;margin-top:12px}
+.due-date{font-size:clamp(1.75rem, 1rem + 1.2vw, 2.25rem);line-height:1.1;margin-top:6px;font-variant-numeric:tabular-nums}
+.due-left{color:var(--ink-soft);margin-top:6px}
+.due-left.late{color:var(--warn);font-weight:600}
+
+/* insights */
+.ins-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;margin-top:44px}
+.ins{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--rule);padding:26px;text-decoration:none;color:var(--ink);min-width:0;transition:border-color .15s}
+.ins:hover{border-color:var(--ink)}
+.ins-feature{grid-row:span 3}
+.ins h3{font-size:1.375rem;line-height:1.2}
+.ins-feature h3{font-size:clamp(1.75rem,1.3rem + 1.4vw,2.5rem);line-height:1.1}
+.ins .dek{color:var(--ink-soft)}
+.ins .read{margin-top:auto;padding-top:6px;font-weight:600;font-size:.9375rem}
+.ins .read::after{content:" \2192"}
+.ins .eyebrow-sm{color:var(--accent)}
+.cal{background:var(--paper);border:1px solid var(--rule);padding:16px;margin-bottom:14px}
+.cal-head{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.cal-key i{display:inline-block;width:10px;height:10px;background:var(--btn);margin-right:6px;vertical-align:-1px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:12px}
+.cal-dow{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-soft);text-align:center;padding-bottom:2px}
+.cal-day{height:2.25rem;display:grid;place-items:center;font-family:var(--f-mono);font-size:.75rem;background:var(--wash);color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.cal-day.empty{background:transparent}
+.cal-day.is-due{background:var(--btn);color:var(--btn-ink);font-weight:500}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.ai-note{margin-top:36px;padding:22px 24px;background:var(--wash)}
+.ai-note .eyebrow-sm{display:block;color:var(--accent);margin-bottom:8px}
+.ai-note p:last-child{color:var(--ink-soft)}
+.people{display:grid;gap:20px}
+.creds{border:1px solid var(--rule);background:var(--card);padding:clamp(22px,3vw,32px)}
+.creds > .eyebrow-sm{color:var(--accent)}
+.cred-list{list-style:none;margin:16px 0 0;padding:0}
+.cred-list li{display:grid;grid-template-columns:7rem minmax(0,1fr);gap:16px;padding-block:14px;border-top:1px solid var(--rule)}
+.cred-k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);padding-top:4px}
+.person{display:grid;grid-template-columns:96px minmax(0,1fr);gap:24px;padding:26px;border:1px solid var(--rule);background:var(--card)}
+.avatar{width:96px;height:96px;display:grid;place-items:center;font-size:1.875rem;color:var(--on-sun);background:linear-gradient(180deg,var(--sun-1),var(--sun-2))}
+.person h3{font-size:1.375rem;font-weight:700}
+.role{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-top:4px}
+.person p:not(.role){margin-top:10px;color:var(--ink-soft)}
+.person .certs{font-size:.9375rem}
+.person.placeholder{border-style:dashed}
+.person.placeholder .avatar{background:var(--chip);color:var(--ink-soft)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,96px);align-items:start}
+.email-box{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:32px;padding-block:16px;border-block:1px solid var(--rule)}
+.email-box .eyebrow-sm{width:100%}
+.email{font-weight:600;font-size:1.125rem;overflow-wrap:anywhere}
+.copy{font:600 .875rem/1 var(--f-body);color:var(--ink);background:transparent;border:1px solid var(--field);border-radius:2px;padding:8px 12px;cursor:pointer}
+.copy:hover{border-color:var(--ink)}
+.referral{margin-top:28px}
+.referral .eyebrow-sm{display:block;color:var(--accent);margin-bottom:6px}
+.referral p:last-child{color:var(--ink-soft)}
+.intake{background:var(--card);border:1px solid var(--rule);padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.field{display:grid;gap:6px;grid-column:1 / -1;min-width:0}
+.field.half{grid-column:auto}
+.intake textarea{resize:vertical;min-height:110px}
+.intake [aria-invalid="true"]{border-color:var(--warn);box-shadow:0 0 0 1px var(--warn)}
+.intake .btn{grid-column:1 / -1;justify-self:start}
+.hp{display:none}
+.form-msg{grid-column:1 / -1;font-size:.9375rem;padding:12px 14px;background:var(--wash)}
+.form-msg.ok{color:var(--ok)}
+.form-msg.err{color:var(--warn)}
+
+/* footer */
+.foot{background:var(--deep);color:var(--deep-ink);padding-block:64px 32px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:32px}
+.foot .brand{color:var(--deep-ink)}
+.foot-brand p{margin-top:16px;color:var(--deep-soft);max-width:22em}
+.foot-h{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--deep-soft);margin-bottom:12px}
+.foot nav{display:grid;gap:8px;align-content:start}
+.foot nav a{text-decoration:none;color:var(--deep-ink);font-size:.9375rem}
+.foot nav a:hover{text-decoration:underline}
+.foot-contact p:not(.foot-h){font-size:.9375rem;overflow-wrap:anywhere}
+.foot-contact p + p{margin-top:6px}
+.foot-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;margin-top:48px;padding-top:20px;border-top:1px solid var(--deep-rule);font-size:.8125rem;color:var(--deep-soft)}
+.foot-legal p:last-child{max-width:52em}
+
+/* responsive */
+@media (min-width: 901px){
+  .approach-intro{position:sticky;top:calc(env(safe-area-inset-top,0px) + 112px);align-self:start}
+}
+@media (max-width: 1080px){
+  .nav{gap:20px}
+  .retire-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .calc-body{grid-template-columns:minmax(0,1fr)}
+  .tools{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 960px){
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--rule);flex-direction:column;gap:0;padding:4px var(--gutter) 20px;box-shadow:var(--shadow)}
+  .nav.open{display:flex}
+  .nav a{padding-block:14px;border-bottom:1px solid var(--rule)}
+  .nav a:hover{border-bottom-color:var(--rule);color:var(--accent)}
+  .nav .nav-cta{display:inline-flex;margin-top:16px;border-bottom:0;padding:14px 20px;color:var(--btn-ink)}
+  .nav .nav-cta:hover{color:var(--btn-ink)}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width: 900px){
+  .hero-grid,.split,.approach,.about,.contact,.tools,.ins-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-art{max-width:540px;justify-self:center}
+  .split{align-items:start}
+  .offers{grid-template-columns:minmax(0,1fr)}
+  .offer{padding-right:0;padding-bottom:28px}
+  .offer + .offer{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ins-feature{grid-row:auto}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot-brand{grid-column:1 / -1}
+}
+@media (max-width: 760px){
+  .util{display:none}
+  .factstrip{grid-template-columns:minmax(0,1fr)}
+  .signals{grid-template-columns:minmax(0,1fr)}
+  .signal{padding-right:0}
+  .signal + .signal{padding-left:0;border-left:0;border-top:1px solid var(--rule);margin-top:22px}
+  .pilot{grid-template-columns:minmax(0,1fr);justify-items:start}
+  .retire-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 560px){
+  .head-cta{display:none}
+  .intake{grid-template-columns:minmax(0,1fr)}
+  .field.half{grid-column:1 / -1}
+  .person{grid-template-columns:minmax(0,1fr);gap:16px}
+  .avatar{width:72px;height:72px;font-size:1.5rem}
+  .cred-list li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .step{grid-template-columns:minmax(0,1fr);gap:8px}
+}
+@media (max-width: 480px){
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .foot-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .sun-body{animation:none}
+  .bar-fill,.btn,.ins{transition:none}
+}
+</style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo-link">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="80" viewBox="0 0 160 80">
-                    <image x="0" y="0" width="60" height="80" xlink:href="logo.png" />
-                    <text x="70" y="50" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#FF4136">nimby</text>
-                </svg>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#case-studies">Case Studies</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Our Team</a></li>
-            </ul>
-            <a href="#contact" class="contact-button">Contact Us</a>
-            <button class="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-        </nav>
-    </header>
+<div class="util">
+  <div class="wrap util-row">
+    <span>Salesforce add-on and integration sunsets</span>
+    <span class="util-links"><a href="#referrals">Referral partners</a><span aria-hidden="true">·</span><span>hello@nimbyconsulting.com</span></span>
+  </div>
+</div>
 
-    <main>
-        <section id="home" class="section hero">
-            <div class="hero-image" style="background-image: url('hero.webp');"></div>
-            <div class="hero-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300">
-                    <circle cx="100" cy="100" r="80" fill="rgba(255, 165, 0, 0.5)" />
-                    <circle cx="300" cy="200" r="100" fill="rgba(255, 69, 0, 0.5)" />
-                    <circle cx="500" cy="150" r="120" fill="rgba(255, 140, 0, 0.5)" />
-                </svg>
-            </div>
-            <div class="hero-content container">
-                <h1>Elevate Your Salesforce Experience</h1>
-                <p>nimby delivers expert Salesforce managed services to optimize your CRM investment and drive business growth.</p>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
-        </section>
+<header class="site-head" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="#top" aria-label="Nimby Consulting home">
+      <svg class="mark" viewBox="0 0 46 29" aria-hidden="true"><defs><clipPath id="mk-disc-h"><circle cx="23" cy="23" r="17"/></clipPath><clipPath id="mk-hz-h"><rect x="0" y="0" width="46" height="23"/></clipPath></defs><g clip-path="url(#mk-hz-h)"><g clip-path="url(#mk-disc-h)"><rect class="m1" x="0" y="6" width="46" height="8"/><rect class="m2" x="0" y="15.6" width="46" height="3.6"/><rect class="m3" x="0" y="20.6" width="46" height="2.4"/></g></g><rect class="mh" x="1" y="24.6" width="44" height="2.6"/></svg>
+      <span class="wordmark">nimby</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#retire">What we retire</a>
+      <a href="#approach">Approach</a>
+      <a href="#results">Results</a>
+      <a href="#about">About</a>
+      <a class="btn nav-cta" href="#contact">Book a free review</a>
+    </nav>
+    <a class="btn btn-sm head-cta" href="#contact">Book a free review</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars-ico" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+  </div>
+</header>
 
-        <section id="services" class="section services">
-            <div class="container animate">
-                <h2>Our Services</h2>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>Strategic Planning</h3>
-                        <p>Align your Salesforce implementation with your business goals.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Salesforce Optimization</h3>
-                        <p>Enhance your Salesforce instance for peak performance.</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>Ongoing Support</h3>
-                        <p>Access our team of certified Salesforce professionals.</p>
-                       <!--- <a href="ongoing-support-sla.html" class="read-more">Read More</a> --->
-                    </div>
-                    <div class="service-item">
-                        <h3>Lightning Migration</h3>
-                        <p>Seamlessly transition to Salesforce Lightning Experience.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="case-studies" class="section case-studies">
-            <div class="container animate">
-                <h2>Success Stories</h2>
-                <div class="case-study-grid">
-                    <div class="case-study-item">
-                        <img src="consulting2.jpeg" alt="Global Corp Salesforce Optimization">
-                        <h3>FinServe Solutions User Adoption</h3>
-                        <p>Increased user adoption by 70% across all departments.</p>
-                        <a href="finserve-case-study.html"  class="read-more">Read More</a>
-                    </div>
-                    <div class="case-study-item">
-                        <img src="consulting3.jpg" alt="Terralink Inc. Lightning Migration">
-                        <h3>Terralink Inc. Lightning Migration</h3>
-                        <p>Seamless transition resulting in 25% faster load times and improved user experience.</p>
-                        <a href="terralink-case-study.html" class="read-more">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section about">
-            <div class="container animate">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>About nimby</h2>
-                        <p>At nimby, we're passionate about helping businesses leverage the full potential of Salesforce. Our team of certified experts brings years of experience in Salesforce implementation, customization, and optimization.</p>
-                        <p>We believe in building long-term partnerships with our clients, ensuring their Salesforce instance evolves with their business needs.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="consulting1.jpeg" alt="nimby Team">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="team" class="section team">
-            <div class="container animate">
-                <h2>Meet Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="team1.jpeg" alt="John Doe">
-                        <h3>Michael Payne</h3>
-                        <p>Co-Founder</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="team2.jpeg" alt="Jane Smith">
-                        <h3>Spyridon Pallis</h3>
-                        <p>Co-Founder</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="team3.png" alt="Jane Smith">
-                        <h3>Balarma Surupa</h3>
-                        <p>Sr. Technical Analyst</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="team4.png" alt="Jane Smith">
-                        <h3>Duleep Gundlapalli</h3>
-                        <p>Cloud Architect</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section contact">
-            <div class="container animate">
-                <h2>Get in Touch</h2>
-                <form id="contact-form" action="https://formspree.io/f/mpwanjgv" method="POST">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Send Message</button>
-                </form>
-                <div id="form-status"></div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>© 2024 nimby - Salesforce Managed Services. All rights reserved.</p>
-                    <p>Miami, FL</p>
-                    <p>Phone: +1 (239) 331-1680</p>
-                    <p>Email: info@nimbyconsulting.com</p>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/company/nimby-salesforce-consulting/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-                </div>
-                
-            </div>
-            <div class="footer-bottom">
-                <p>10x Salesforce Certified</p>
-                <img src="certs.png" alt="Salesforce Partner Logo">
-            </div>
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Salesforce sunsets for mid-market teams</p>
+        <h1 class="display hero-title">Retire the Salesforce <span class="nw">add-ons</span> you've outgrown.</h1>
+        <p class="lead">Nimby finds the apps and integrations you're still paying for, rebuilds the parts you use inside Salesforce, and gets your <span class="nw">non-renewal</span> notice in before the deadline.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Book a free renewal review</a>
+          <a class="link-arrow" href="#tools">See what a sunset costs</a>
         </div>
-    </footer>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="sun" viewBox="0 0 600 404">
+          <defs>
+            <clipPath id="hz-clip"><rect x="0" y="0" width="600" height="330"/></clipPath>
+            <clipPath id="disc-clip"><circle cx="300" cy="330" r="236"/></clipPath>
+          </defs>
+          <g clip-path="url(#hz-clip)">
+            <g class="sun-body">
+              <g clip-path="url(#disc-clip)">
+                <rect class="s1" x="0" y="94" width="600" height="104"/>
+                <rect class="s2" x="0" y="208" width="600" height="52"/>
+                <rect class="s3" x="0" y="272" width="600" height="30"/>
+                <rect class="s4" x="0" y="314" width="600" height="14"/>
+                <rect class="s4" x="0" y="338" width="600" height="10"/>
+                <rect class="s4" x="0" y="356" width="600" height="6"/>
+              </g>
+            </g>
+          </g>
+          <rect class="hz" x="0" y="330" width="600" height="6"/>
+          <rect class="rf rf1" x="150" y="354" width="300" height="5"/>
+          <rect class="rf rf2" x="205" y="374" width="190" height="4"/>
+          <rect class="rf rf3" x="255" y="392" width="90" height="3"/>
+        </svg>
+        <div class="notice">
+          <div class="notice-top"><span class="eyebrow-sm">Renewal notice</span><span class="pill">Example</span></div>
+          <p class="notice-tool">Backup and archive add-on</p>
+          <dl class="notice-dl">
+            <div><dt>Auto-renews</dt><dd id="hn-renew">Dec 12, 2026</dd></div>
+            <div><dt>Notice window</dt><dd>60 days</dd></div>
+            <div class="hot"><dt>Send notice by</dt><dd id="hn-due">Oct 13, 2026</dd></div>
+          </dl>
+          <div class="meter"><span id="hn-meter" style="width:30%"></span></div>
+          <div class="notice-foot"><span id="hn-days">9 days left</span><span>$16,000 a year</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="factstrip">
+        <li><strong>Free</strong> 30-minute renewal review</li>
+        <li><strong>Fixed price</strong>, quoted before you commit</li>
+        <li><strong>You own</strong> everything we build</li>
+      </ul>
+    </div>
+  </section>
 
-    <script>
-        const form = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
+  <section class="band-wash" id="why">
+    <div class="wrap">
+      <p class="eyebrow">Why it matters</p>
+      <div class="split">
+        <h2 class="display h2">Every add-on is another vendor in your backyard.</h2>
+        <div class="prose">
+        <p>Each one brings its own contract and login, plus a renewal email that lands in a shared inbox nobody reads. Most were bought years ago to fill a gap Salesforce has since closed. Nobody owns the list, so they keep renewing.</p>
+        <p class="name-note"><span class="eyebrow-sm">Why the name</span>Nimby comes from nimbus, Latin for cloud. In old paintings a nimbus is also the disc of light behind a saint, so our mark is a sun on the horizon.</p>
+      </div>
+      </div>
+      <div class="signals">
+        <div class="signal"><p class="eyebrow-sm">Auto-renewal</p><p>Most SaaS contracts renew on their own unless someone sends written notice.</p></div>
+        <div class="signal"><p class="eyebrow-sm">Notice window</p><p>That notice is usually due 30 to 90 days before the renewal date, long before the invoice shows up.</p></div>
+        <div class="signal"><p class="eyebrow-sm">Overlap</p><p>Plenty of add-ons now duplicate features you already pay for in Salesforce or Microsoft 365.</p></div>
+      </div>
+    </div>
+  </section>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    formStatus.innerHTML = "Thanks for your submission!";
-                    form.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            formStatus.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.innerHTML = "Oops! There was a problem submitting your form";
-                        }
-                    });
-                }
-            }).catch(error => {
-                formStatus.innerHTML = "Oops! There was a problem submitting your form";
-            });
-        });
+  <section class="band" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What we do</p>
+        <h2 class="display h2">One review, one fixed price, then the bill stops.</h2>
+        <p class="sec-sub">Three ways to work with us, in the order most teams use them.</p>
+      </div>
+      <div class="offers">
+        <article class="offer">
+          <p class="eyebrow-sm">Start here</p>
+          <h3 class="offer-name">Renewal review</h3>
+          <p class="offer-price display">Free</p>
+          <p class="offer-body">Thirty minutes on what renews in the next six months. Within two business days you get a written keep, replace, or renegotiate call on each tool, with the math and a fixed quote.</p>
+          <p class="offer-foot">Two reviews a week, booked in order.</p>
+        </article>
+        <article class="offer">
+          <p class="eyebrow-sm">Then</p>
+          <h3 class="offer-name">Sunset build</h3>
+          <p class="offer-price display">About half of one year's license</p>
+          <p class="offer-body">We rebuild what you actually use inside Salesforce, move the data, uninstall the package cleanly, and send the non-renewal notice.</p>
+          <p class="offer-foot">$2,500 minimum. 50% to start, 50% at go-live. You own everything we build.</p>
+        </article>
+        <article class="offer">
+          <p class="eyebrow-sm">After go-live</p>
+          <h3 class="offer-name">Care plan</h3>
+          <p class="offer-price display">From $300 a month</p>
+          <p class="offer-body">Fixes, small changes, and a check of every Salesforce release against what we built. Replies by the next business day.</p>
+          <p class="offer-foot">Month to month. Cancel any time.</p>
+        </article>
+      </div>
+      <div class="pilot">
+        <p class="pill pill-accent">Pilot</p>
+        <div>
+          <h3 class="pilot-title">AI without the add-on</h3>
+          <p>Document reading, summaries, and routing built on the model APIs inside your org. You pay cents per document instead of another per-seat license.</p>
+        </div>
+        <a class="link-arrow" href="#contact">Ask about a pilot</a>
+      </div>
+    </div>
+  </section>
 
-        const sections = document.querySelectorAll('.section');
-        window.addEventListener('scroll', () => {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight * 0.75) {
-                    section.classList.add('show');
-                }
-            });
-        });
+  <section class="band-wash" id="retire">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Common sunsets</p>
+        <h2 class="display h2">What we retire most, and what replaces it.</h2>
+      </div>
+      <div class="retire-grid">
+        <article class="retire">
+          <h3>Backup and archive add-ons</h3>
+          <p class="ex">Paid backup, restore, and archiving apps.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Scheduled backups that land in storage you own, plus a restore you've actually tested.</p>
+        </article>
+        <article class="retire">
+          <h3>Work-management tools bolted on</h3>
+          <p class="ex">Spreadsheet trackers, project boards, and intake forms that live outside the CRM.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Request queues, approvals, and dashboards inside Salesforce, next to the customer record.</p>
+        </article>
+        <article class="retire">
+          <h3>Dedupe and data-quality apps</h3>
+          <p class="ex">Duplicate checkers that create warnings nobody clears.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Native matching and duplicate rules, with a merge queue someone owns.</p>
+        </article>
+        <article class="retire">
+          <h3>File-sync connectors</h3>
+          <p class="ex">Third-party file storage wired into records.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Salesforce Files plus the SharePoint or OneDrive you already pay for.</p>
+        </article>
+        <article class="retire">
+          <h3>Seats nobody logs into</h3>
+          <p class="ex">Marketing, data, and productivity licenses bought for a team that changed.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>A license review against last-login data, done before the renewal.</p>
+        </article>
+        <article class="retire">
+          <h3>Legacy systems kept for lookups</h3>
+          <p class="ex">An old CRM or tracker kept alive because the history lives there.</p>
+          <p class="swap"><span class="eyebrow-sm">Replaced with</span>History moved into Salesforce so the old system can be switched off.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
-    </script>
+  <section class="band" id="approach">
+    <div class="wrap approach">
+      <div class="approach-intro">
+        <p class="eyebrow">Approach</p>
+        <h2 class="display h2">How a sunset works.</h2>
+        <p class="prose-p">Four steps, and most sunsets take a few weeks end to end. We work back from your notice date so the old tool is gone before it can renew.</p>
+        <p class="callout">The renewal date isn't your deadline. The notice date is.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-n display">01</span>
+          <div>
+            <h3>Inventory</h3>
+            <p>Every installed package, connected app, and integration user, with its cost, owner, renewal date, and notice date.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>An inventory sheet you keep using after we're done.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n display">02</span>
+          <div>
+            <h3>Decide</h3>
+            <p>A keep, replace, or renegotiate call on each tool. Replacements come with a fixed quote and the month they pay for themselves.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>A written recommendation and a fixed quote.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n display">03</span>
+          <div>
+            <h3>Rebuild</h3>
+            <p>Built in a sandbox first. Data moves with a reconciliation report, so every record is accounted for.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>A working build your team signs off on.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-n display">04</span>
+          <div>
+            <h3>Retire</h3>
+            <p>Cutover, a clean uninstall, and the non-renewal notice sent before the deadline. We archive the old data before access ends.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>A closed contract and a smaller bill.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band-red" id="results">
+    <div class="wrap">
+      <p class="eyebrow">Track record</p>
+      <h2 class="display h2">We did this in a live org before we offered it to anyone.</h2>
+      <div class="stats">
+        <div class="stat"><p class="stat-n display">$16K<span>/yr</span></p><p class="stat-d">Backup and archive subscription replaced with a native backup the company owns.</p></div>
+        <div class="stat"><p class="stat-n display">18</p><p class="stat-d">Spreadsheet workflows moved into Salesforce requests.</p></div>
+        <div class="stat"><p class="stat-n display">3</p><p class="stat-d">Add-on packages retired: dedupe, field service, and file sync.</p></div>
+        <div class="stat"><p class="stat-n display">$40K+<span>/yr</span></p><p class="stat-d">Overlapping software spend identified in a single org.</p></div>
+      </div>
+      <p class="fine">Programs a co-founder led in-house at a mid-market B2B company, 2025 to 2026. Figures rounded. Company not named.</p>
+    </div>
+  </section>
+
+  <section class="band-wash" id="tools">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Tools</p>
+        <h2 class="display h2">Run your own numbers.</h2>
+        <p class="sec-sub">Two checks we run on every review call. Everything you type stays in your browser.</p>
+      </div>
+      <div class="tools">
+        <form class="tool" id="calc" novalidate>
+          <h3 class="tool-title">What would a sunset cost?</h3>
+          <div class="calc-body">
+            <div class="calc-in">
+          <label for="calc-annual">What the tool costs per year</label>
+          <div class="money"><span aria-hidden="true">$</span><input id="calc-annual" type="number" inputmode="numeric" min="0" step="100" value="16000"></div>
+          <label class="check" for="calc-care"><input id="calc-care" type="checkbox">Add a care plan after go-live ($300 a month)</label>
+          <div class="bars" aria-hidden="true">
+            <div class="bar-row"><span class="bar-label">Keep paying for three years</span><span class="bar-val" id="b-keep-v">$48,000</span><span class="bar"><span class="bar-fill keep" id="b-keep" style="width:100%"></span></span></div>
+            <div class="bar-row"><span class="bar-label" id="b-cut-l">Sunset it once</span><span class="bar-val" id="b-cut-v">$8,000</span><span class="bar"><span class="bar-fill cut" id="b-cut" style="width:16.7%"></span></span></div>
+          </div>
+            </div>
+          <dl class="out">
+            <div><dt>Sunset build, fixed price</dt><dd id="o-fee">$8,000</dd></div>
+            <div><dt>At signing / at go-live</dt><dd id="o-split">$4,000 / $4,000</dd></div>
+            <div><dt>Saved in year one</dt><dd id="o-y1">$8,000</dd></div>
+            <div><dt>Saved over three years</dt><dd id="o-y3" class="big">$40,000</dd></div>
+            <div><dt>Pays for itself in</dt><dd id="o-pay">6 months</dd></div>
+          </dl>
+          </div>
+          <p class="tool-note" id="calc-note">Estimate only. The fixed quote comes after your review.</p>
+        </form>
+        <form class="tool" id="notice" novalidate>
+          <h3 class="tool-title">When is your notice due?</h3>
+          <label for="nd-renew">Renewal date</label>
+          <input id="nd-renew" type="date" value="2026-12-12">
+          <label for="nd-window">Notice window in the contract</label>
+          <select id="nd-window">
+            <option value="30">30 days</option>
+            <option value="45">45 days</option>
+            <option value="60" selected>60 days</option>
+            <option value="90">90 days</option>
+          </select>
+          <div class="due" aria-live="polite">
+            <p class="eyebrow-sm">Send written notice by</p>
+            <p class="due-date display" id="nd-due">Oct 13, 2026</p>
+            <p class="due-left" id="nd-left">9 days from today.</p>
+          </div>
+          <p class="tool-note">Check the order form and the master terms. The notice clause can live in either, and they don't always agree.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2 class="display h2">A small team, on purpose.</h2>
+        <p class="prose-p">The people on your review call are the people who do the work.</p>
+        <div class="ai-note">
+          <p class="eyebrow-sm">How we use AI</p>
+          <p>We use AI to read org metadata and draft code faster. A person reviews every change before it reaches your org, and client work runs on accounts where your data isn't used to train models.</p>
+        </div>
+      </div>
+      <div class="creds">
+        <p class="eyebrow-sm">Credentials</p>
+        <ul class="cred-list">
+          <li><span class="cred-k">Certified</span><span>Salesforce Platform Developer I, Administrator, and Business Analyst</span></li>
+          <li><span class="cred-k">Built</span><span>A production Salesforce platform, run in-house, with quoting, pricing, ERP integration, and data migration</span></li>
+          <li><span class="cred-k">Big Four</span><span>Two years on PwC's global Salesforce team</span></li>
+          <li><span class="cred-k">Retired</span><span>Backup, archive, dedupe, field service, and file-sync add-ons, plus 18 spreadsheet workflows</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-wash" id="contact">
+    <div class="wrap contact">
+      <div>
+        <p class="eyebrow">Free renewal review</p>
+        <h2 class="display h2">Tell us what's renewing.</h2>
+        <p class="prose-p">We'll reply within one business day with times for a 30-minute call. We take two reviews a week, so each one gets real attention.</p>
+        <div class="email-box">
+          <span class="eyebrow-sm">Or email us</span>
+          <span class="email" id="email-text">hello@nimbyconsulting.com</span>
+          <button type="button" class="copy" id="copy-email">Copy</button>
+        </div>
+        <div class="referral" id="referrals">
+          <p class="eyebrow-sm">Referral partners</p>
+          <p>Bookkeepers, fractional CFOs, and IT providers see these bills first. Refer a sunset and earn 10% of the first project.</p>
+        </div>
+      </div>
+      <form class="intake" id="intake" novalidate>
+        <input type="hidden" name="_subject" value="New renewal review request">
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+        <div class="field"><label for="f-tool">What's renewing?</label><input id="f-tool" name="tool" placeholder="For example: a backup add-on, project boards" required></div>
+        <div class="field half"><label for="f-cost">Roughly what it costs per year</label><input id="f-cost" name="cost" inputmode="numeric" placeholder="$"></div>
+        <div class="field half"><label for="f-date">Renewal date, if you know it</label><input id="f-date" name="renewal" type="date"></div>
+        <div class="field"><label for="f-notes">Anything else we should know?</label><textarea id="f-notes" name="notes" rows="4"></textarea></div>
+        <button class="btn" type="submit">Request a review</button>
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top" aria-label="Nimby Consulting home">
+        <svg class="mark" viewBox="0 0 46 29" aria-hidden="true"><defs><clipPath id="mk-disc-f"><circle cx="23" cy="23" r="17"/></clipPath><clipPath id="mk-hz-f"><rect x="0" y="0" width="46" height="23"/></clipPath></defs><g clip-path="url(#mk-hz-f)"><g clip-path="url(#mk-disc-f)"><rect class="m1" x="0" y="6" width="46" height="8"/><rect class="m2" x="0" y="15.6" width="46" height="3.6"/><rect class="m3" x="0" y="20.6" width="46" height="2.4"/></g></g><rect class="mh" x="1" y="24.6" width="44" height="2.6"/></svg>
+        <span class="wordmark">nimby</span>
+      </a>
+      <p>We retire the Salesforce add-ons and integrations you've outgrown, and rebuild what you use inside Salesforce.</p>
+    </div>
+    <nav aria-label="Services">
+      <p class="foot-h">Services</p>
+      <a href="#services">Renewal review</a>
+      <a href="#services">Sunset build</a>
+      <a href="#services">Care plan</a>
+      <a href="#retire">What we retire</a>
+    </nav>
+    <nav aria-label="Company">
+      <p class="foot-h">Company</p>
+      <a href="#about">About</a>
+      <a href="#referrals">Referral partners</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="foot-contact">
+      <p class="foot-h">Contact</p>
+      <p>hello@nimbyconsulting.com</p>
+      <p>Remote, United States</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="foot-legal">
+      <p>&copy; <span id="yr">2026</span> Nimby LLC</p>
+      <p>Salesforce and AppExchange are trademarks of Salesforce, Inc. Nimby Consulting is not affiliated with or endorsed by Salesforce.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+  var DAY = 86400000;
+  var LIVE = /(^|\.)nimbyconsulting\.com$|\.vercel\.app$/.test(location.hostname);
+  function fmtDate(d){ return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function today(){ var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
+  function addDays(d, n){ return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n); }
+  // Date-only strings parse as UTC midnight (one day early in US time zones), so build local dates by hand.
+  function parseYMD(s){ var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
+  function toYMD(d){ return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function daysBetween(a, b){ return Math.round((b - a) / DAY); }
+
+  // Mobile menu
+  var menuBtn = $('menu-btn'), nav = $('site-nav');
+  menuBtn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Hero example card: a tool that renews 69 days out on a 60-day notice clause
+  var t = today();
+  var heroRenew = addDays(t, 69), heroDue = addDays(heroRenew, -60), heroLeft = daysBetween(t, heroDue);
+  $('hn-renew').textContent = fmtDate(heroRenew);
+  $('hn-due').textContent = fmtDate(heroDue);
+  $('hn-days').textContent = heroLeft + ' days left';
+  $('hn-meter').style.width = Math.max(4, Math.min(100, heroLeft / 30 * 100)) + '%';
+
+  // Notice-date check
+  var ndRenew = $('nd-renew'), ndWin = $('nd-window');
+  ndRenew.value = toYMD(heroRenew);
+  function updateNotice(){
+    var r = parseYMD(ndRenew.value), out = $('nd-due'), left = $('nd-left');
+    if (!r) { out.textContent = 'Pick a date'; left.textContent = 'Enter the renewal date from your order form.'; left.classList.remove('late'); return; }
+    var due = addDays(r, -parseInt(ndWin.value, 10));
+    var n = daysBetween(t, due);
+    out.textContent = fmtDate(due);
+    left.classList.toggle('late', n < 0);
+    if (n > 1) left.textContent = n + ' days from today.';
+    else if (n === 1) left.textContent = 'Tomorrow.';
+    else if (n === 0) left.textContent = 'Today. Send it now.';
+    else left.textContent = 'That was ' + (-n) + (n === -1 ? ' day' : ' days') + ' ago. Ask the vendor whether they will accept late notice, or plan for the next term.';
+  }
+  ndRenew.addEventListener('input', updateNotice);
+  ndRenew.addEventListener('change', updateNotice);
+  ndWin.addEventListener('change', updateNotice);
+  updateNotice();
+
+  // Sunset cost estimator: fee = max($2,500, 50% of one year's license)
+  var RATE = 0.5, FLOOR = 2500, CARE = 300;
+  var annualEl = $('calc-annual'), careEl = $('calc-care');
+  function setText(id, v){ $(id).textContent = v; }
+  function updateCalc(){
+    var annual = Math.max(0, Math.min(10000000, Number(annualEl.value) || 0));
+    var care = careEl.checked ? CARE : 0;
+    var fee = Math.max(FLOOR, Math.round(annual * RATE));
+    var y1 = annual - fee - care * 12;
+    var y3 = annual * 3 - fee - care * 36;
+    var monthlyNet = annual / 12 - care;
+    var pay = monthlyNet > 0 ? fee / monthlyNet : Infinity;
+    setText('o-fee', money.format(fee));
+    setText('o-split', money.format(fee / 2) + ' / ' + money.format(fee / 2));
+    setText('o-y1', money.format(y1));
+    setText('o-y3', money.format(y3));
+    if (isFinite(pay)) { var p = Math.round(pay * 10) / 10; setText('o-pay', p + (p === 1 ? ' month' : ' months')); }
+    else setText('o-pay', 'Does not pay back');
+    var keep = annual * 3, cut = fee + care * 36, max = Math.max(keep, cut) || 1;
+    $('b-keep').style.width = (keep / max * 100) + '%';
+    $('b-cut').style.width = (cut / max * 100) + '%';
+    setText('b-keep-v', money.format(keep));
+    setText('b-cut-v', money.format(cut));
+    setText('b-cut-l', care ? 'Sunset it, plus three years of care' : 'Sunset it once');
+    setText('calc-note', y1 < 0
+      ? 'At this price a sunset pays back after year one. Renegotiating may be the better first move, and the review will tell you which.'
+      : 'Estimate only. The fixed quote comes after your review.');
+  }
+  annualEl.addEventListener('input', updateCalc);
+  careEl.addEventListener('change', updateCalc);
+  $('calc').addEventListener('submit', function(e){ e.preventDefault(); });
+  $('notice').addEventListener('submit', function(e){ e.preventDefault(); });
+  updateCalc();
+
+  // Article illustration: October 2026 starts on a Thursday
+  var grid = $('cal-grid');
+  if (grid) {
+    var frag = document.createDocumentFragment(), i, s;
+    'SMTWTFS'.split('').forEach(function(d){ s = document.createElement('span'); s.className = 'cal-dow'; s.textContent = d; frag.appendChild(s); });
+    for (i = 0; i < 4; i++) { s = document.createElement('span'); s.className = 'cal-day empty'; frag.appendChild(s); }
+    for (i = 1; i <= 31; i++) { s = document.createElement('span'); s.className = 'cal-day' + (i === 13 ? ' is-due' : ''); s.textContent = i; frag.appendChild(s); }
+    grid.appendChild(frag);
+  }
+
+  // Copy email
+  function selectEmail(){
+    var r = document.createRange(); r.selectNodeContents($('email-text'));
+    var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+  }
+  $('copy-email').addEventListener('click', function(e){
+    var b = e.currentTarget, text = $('email-text').textContent.trim();
+    function done(ok){ b.textContent = ok ? 'Copied' : 'Selected, press copy'; setTimeout(function(){ b.textContent = 'Copy'; }, 2200); }
+    try {
+      navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ selectEmail(); done(false); });
+    } catch (err) { selectEmail(); done(false); }
+  });
+
+  // Intake form (mockup: validates, sends nothing)
+  $('intake').addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.currentTarget, msg = $('form-msg');
+    var req = Array.prototype.slice.call(f.querySelectorAll('[required]'));
+    var missing = req.filter(function(el){
+      var v = el.value.trim();
+      return !v || (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(v));
+    });
+    req.forEach(function(el){ el.setAttribute('aria-invalid', missing.indexOf(el) > -1 ? 'true' : 'false'); });
+    msg.hidden = false;
+    if (missing.length) {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Add your name, a work email, and what’s renewing, then send again.';
+      missing[0].focus();
+      return;
+    }
+    if (!LIVE) {
+      msg.className = 'form-msg ok';
+      msg.textContent = 'Preview only, so nothing was sent. On nimbyconsulting.com this request reaches us and you\u2019d get call times within one business day.';
+      return;
+    }
+    var send = f.querySelector('button[type="submit"]');
+    send.disabled = true; send.textContent = 'Sending\u2026';
+    fetch('https://formspree.io/f/mpwanjgv', { method: 'POST', body: new FormData(f), headers: { 'Accept': 'application/json' } })
+      .then(function(r){
+        if (!r.ok) throw new Error('status ' + r.status);
+        msg.className = 'form-msg ok';
+        msg.textContent = 'Thanks. We\u2019ll reply within one business day with times for a 30-minute call.';
+        f.reset();
+      })
+      .catch(function(){
+        msg.className = 'form-msg err';
+        msg.textContent = 'That didn\u2019t send. Please email hello@nimbyconsulting.com instead.';
+      })
+      .then(function(){ send.disabled = false; send.textContent = 'Request a review'; });
+  });
+
+  $('yr').textContent = new Date().getFullYear();
+})();
+</script>
 </body>
 </html>
