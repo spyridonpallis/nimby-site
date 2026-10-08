@@ -1,0 +1,33 @@
+# Nimby Consulting
+
+> Nimby retires the Salesforce add-ons and integrations companies have outgrown, rebuilds the parts they actually use inside Salesforce, and gets the non-renewal notice in before the deadline.
+
+Nimby is a small US-based Salesforce consultancy (Nimby LLC). The people on the review call are the people who do the work. Contact: hello@nimbyconsulting.com
+
+## Services
+
+- Renewal review: free, 30 minutes, on what renews in the next six months. Within two business days the client gets a written keep, replace, or renegotiate call on each tool, with the math and a fixed quote.
+- Sunset build: a fixed-price rebuild inside Salesforce of what the client actually uses. Data moves with a reconciliation report, the package is uninstalled cleanly, and the non-renewal notice is sent before the deadline. Price is about half of one year's license for the tool being retired, with a $2,500 minimum, 50% at signing and 50% at go-live. The client owns everything built.
+- Care plan: fixes, small changes, and a check of every Salesforce release against what was built. From $300 a month, month to month.
+
+## What Nimby commonly replaces
+
+- Salesforce CPQ or a third-party CPQ, when quoting is products, price books, discount approvals and a PDF
+- Dedupe and data-quality apps such as RingLead, DemandTools, Cloudingo and DupeBlocker
+- Backup and archive add-ons
+- Work-management tools bolted onto Salesforce (spreadsheet trackers, project boards, intake forms)
+- File-sync connectors
+- Seats nobody logs into, and legacy systems kept only for lookups
+
+## Pages
+
+- [Home](https://www.nimbyconsulting.com/): services, approach, a sunset cost estimator and a notice-date check
+- [Salesforce CPQ alternative](https://www.nimbyconsulting.com/salesforce-cpq-alternative/): when standard Salesforce Quotes can replace CPQ, and when CPQ is still worth the license
+- [Native Salesforce duplicate management](https://www.nimbyconsulting.com/salesforce-duplicate-management/): replacing a dedupe app with Salesforce matching rules, duplicate rules and a merge queue
+
+## Key facts
+
+- Most SaaS contracts renew automatically unless written notice is sent, usually 30 to 90 days before the renewal date.
+- Nimby works back from the notice date, not the renewal date.
+- Builds happen in a sandbox first, and every data move comes with a reconciliation report.
+- Nimby Consulting is not affiliated with or endorsed by Salesforce, Inc.

@@ -3,82 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nimby Consulting | Salesforce add-on and integration sunsets</title>
-<meta name="description" content="Nimby retires the Salesforce add-ons and integrations you've outgrown, rebuilds what you use inside Salesforce, and gets your non-renewal notice in before the deadline. Free 30-minute renewal review.">
-<link rel="canonical" href="https://www.nimbyconsulting.com/">
+<title>Salesforce CPQ alternative: native quoting | Nimby Consulting</title>
+<meta name="description" content="If your quoting is products, price books, discount approvals and a PDF, standard Salesforce Quotes can do the job. Nimby rebuilds it natively for a fixed price and retires the CPQ license before it renews.">
+<link rel="canonical" href="https://www.nimbyconsulting.com/salesforce-cpq-alternative/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#C8321F">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nimby Consulting">
-<meta property="og:title" content="Retire the Salesforce add-ons you've outgrown">
-<meta property="og:description" content="Nimby retires the Salesforce add-ons and integrations you've outgrown, rebuilds what you use inside Salesforce, and gets your non-renewal notice in before the deadline. Free 30-minute renewal review.">
-<meta property="og:url" content="https://www.nimbyconsulting.com/">
+<meta property="og:title" content="Quote in Salesforce without paying for CPQ">
+<meta property="og:description" content="If your quoting is products, price books, discount approvals and a PDF, standard Salesforce Quotes can do the job. Nimby rebuilds it natively for a fixed price and retires the CPQ license before it renews.">
+<meta property="og:url" content="https://www.nimbyconsulting.com/salesforce-cpq-alternative/">
 <meta property="og:image" content="https://www.nimbyconsulting.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Organization",
-   "@id": "https://www.nimbyconsulting.com/#org",
-   "name": "Nimby Consulting",
-   "legalName": "Nimby LLC",
-   "url": "https://www.nimbyconsulting.com/",
-   "logo": "https://www.nimbyconsulting.com/logo.png",
-   "image": "https://www.nimbyconsulting.com/og-image.png",
-   "email": "hello@nimbyconsulting.com",
-   "description": "Nimby retires the Salesforce add-ons and integrations you've outgrown, rebuilds what you use inside Salesforce, and gets your non-renewal notice in before the deadline.",
-   "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-   },
-   "sameAs": [
-    "https://www.linkedin.com/company/nimby-salesforce-consulting/"
-   ],
-   "knowsAbout": [
-    "Salesforce",
-    "Salesforce CPQ",
-    "Salesforce duplicate management",
-    "AppExchange packages",
-    "Salesforce integrations",
-    "SaaS renewals and notice dates"
-   ],
-   "makesOffer": [
-    {
-     "@type": "Offer",
-     "name": "Renewal review",
-     "price": "0",
-     "priceCurrency": "USD",
-     "description": "Free 30-minute review of what renews in the next six months, with a written keep, replace, or renegotiate call and a fixed quote within two business days."
-    },
-    {
-     "@type": "Offer",
-     "name": "Sunset build",
-     "description": "A fixed-price rebuild inside Salesforce of what you actually use, with data moved, the package uninstalled, and the non-renewal sent. About half of one year's license, $2,500 minimum."
-    },
-    {
-     "@type": "Offer",
-     "name": "Care plan",
-     "description": "Fixes, small changes, and a check of every Salesforce release against what we built. From $300 a month, month to month."
-    }
-   ]
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://www.nimbyconsulting.com/#website",
-   "name": "Nimby Consulting",
-   "url": "https://www.nimbyconsulting.com/",
-   "publisher": {
-    "@id": "https://www.nimbyconsulting.com/#org"
-   }
-  }
- ]
-}
-</script>
 <style>[hidden]{display:none!important}img{max-width:100%}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:ital,wght@0,400;0,700;1,400&display=swap">
@@ -466,27 +407,132 @@ section{scroll-margin-top:88px}
   .bar-fill,.btn,.ins{transition:none}
 }
 </style>
+<style>
+.crumb{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:18px}
+.crumb a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
+.crumb a:hover{color:var(--accent)}
+.faq{margin-top:40px;border-top:2px solid var(--ink);max-width:56em}
+.faq details{border-bottom:1px solid var(--rule);padding:20px 0}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.0625rem;line-height:1.4;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-weight:500;color:var(--accent);flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{margin-top:10px;color:var(--ink-soft);max-width:46em}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://www.nimbyconsulting.com/#org",
+   "name": "Nimby Consulting",
+   "url": "https://www.nimbyconsulting.com/"
+  },
+  {
+   "@type": "Service",
+   "name": "Quote in Salesforce without paying for CPQ",
+   "serviceType": "Salesforce CPQ alternative",
+   "url": "https://www.nimbyconsulting.com/salesforce-cpq-alternative/",
+   "description": "If your quoting is products, price books, discount approvals and a PDF, standard Salesforce Quotes can do the job. Nimby rebuilds it natively for a fixed price and retires the CPQ license before it renews.",
+   "provider": {
+    "@id": "https://www.nimbyconsulting.com/#org"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+   },
+   "offers": {
+    "@type": "Offer",
+    "description": "Fixed price, about half of one year's license, with a $2,500 minimum. Free 30-minute renewal review first."
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Do we need a different Salesforce edition?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Standard Quotes come with Sales Cloud. Some approval and automation features depend on your edition, so we check yours on the review call before we quote."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What happens to our old CPQ quotes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We export them before anything is uninstalled. The history stays on each opportunity as data, as PDFs, or both. Your choice."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How long does it take?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Most CPQ sunsets take a few weeks end to end. We plan from your notice date so the old license can't renew."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What does it cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "About half of one year's CPQ license, as a fixed price agreed before you commit, with a $2,500 minimum. Half at signing, half at go-live."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who owns what you build?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "You do. Everything lives in your org and is documented, with no package of ours to license."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Nimby",
+     "item": "https://www.nimbyconsulting.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "CPQ alternative",
+     "item": "https://www.nimbyconsulting.com/salesforce-cpq-alternative/"
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <div class="util">
   <div class="wrap util-row">
     <span>Salesforce add-on and integration sunsets</span>
-    <span class="util-links"><a href="#referrals">Referral partners</a><span aria-hidden="true">·</span><span>hello@nimbyconsulting.com</span></span>
+    <span class="util-links"><a href="/#referrals">Referral partners</a><span aria-hidden="true">·</span><span>hello@nimbyconsulting.com</span></span>
   </div>
 </div>
 
 <header class="site-head" id="top">
   <div class="wrap head-row">
-    <a class="brand" href="#top" aria-label="Nimby Consulting home">
+    <a class="brand" href="/" aria-label="Nimby Consulting home">
       <svg class="mark" viewBox="0 0 46 29" aria-hidden="true"><defs><clipPath id="mk-disc-h"><circle cx="23" cy="23" r="17"/></clipPath><clipPath id="mk-hz-h"><rect x="0" y="0" width="46" height="23"/></clipPath></defs><g clip-path="url(#mk-hz-h)"><g clip-path="url(#mk-disc-h)"><rect class="m1" x="0" y="6" width="46" height="8"/><rect class="m2" x="0" y="15.6" width="46" height="3.6"/><rect class="m3" x="0" y="20.6" width="46" height="2.4"/></g></g><rect class="mh" x="1" y="24.6" width="44" height="2.6"/></svg>
       <span class="wordmark">nimby</span>
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="#services">Services</a>
-      <a href="#retire">What we retire</a>
-      <a href="#approach">Approach</a>
-      <a href="#results">Results</a>
-      <a href="#about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#retire">What we retire</a>
+      <a href="/#approach">Approach</a>
+      <a href="/#results">Results</a>
+      <a href="/#about">About</a>
       <a class="btn nav-cta" href="#contact">Book a free review</a>
     </nav>
     <a class="btn btn-sm head-cta" href="#contact">Book a free review</a>
@@ -498,12 +544,13 @@ section{scroll-margin-top:88px}
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Salesforce sunsets for mid-market teams</p>
-        <h1 class="display hero-title">Retire the Salesforce <span class="nw">add-ons</span> you've outgrown.</h1>
-        <p class="lead">Nimby finds the apps and integrations you're still paying for, rebuilds the parts you use inside Salesforce, and gets your <span class="nw">non-renewal</span> notice in before the deadline.</p>
+        <p class="crumb"><a href="/">Nimby</a> / CPQ alternative</p>
+        <p class="eyebrow">Salesforce CPQ alternative</p>
+        <h1 class="display hero-title">Quote in Salesforce without paying for <span class="nw">CPQ.</span></h1>
+        <p class="lead">If your quoting comes down to products, price books, discount approvals and a PDF, standard Salesforce Quotes can do the job. We rebuild your quoting there, move your open quotes, and get the CPQ non-renewal in before the notice date.</p>
         <div class="hero-actions">
           <a class="btn" href="#contact">Book a free renewal review</a>
-          <a class="link-arrow" href="#tools">See what a sunset costs</a>
+          <a class="link-arrow" href="#covers">What native quoting covers</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -534,108 +581,58 @@ section{scroll-margin-top:88px}
     <div class="wrap">
       <ul class="factstrip">
         <li><strong>Free</strong> 30-minute renewal review</li>
-        <li><strong>Fixed price</strong>, quoted before you commit</li>
+        <li><strong>Fixed price</strong>, about half of one year's license</li>
         <li><strong>You own</strong> everything we build</li>
       </ul>
     </div>
   </section>
 
-  <section class="band-wash" id="why">
-    <div class="wrap">
-      <p class="eyebrow">Why it matters</p>
-      <div class="split">
-        <h2 class="display h2">Every add-on is another vendor in your backyard.</h2>
-        <div class="prose">
-        <p>Each one brings its own contract and login, plus a renewal email that lands in a shared inbox nobody reads. Most were bought years ago to fill a gap Salesforce has since closed. Nobody owns the list, so they keep renewing.</p>
-        <p class="name-note"><span class="eyebrow-sm">Why the name</span>Nimby comes from nimbus, Latin for cloud. In old paintings a nimbus is also the disc of light behind a saint, so our mark is a sun on the horizon.</p>
-      </div>
-      </div>
-      <div class="signals">
-        <div class="signal"><p class="eyebrow-sm">Auto-renewal</p><p>Most SaaS contracts renew on their own unless someone sends written notice.</p></div>
-        <div class="signal"><p class="eyebrow-sm">Notice window</p><p>That notice is usually due 30 to 90 days before the renewal date, long before the invoice shows up.</p></div>
-        <div class="signal"><p class="eyebrow-sm">Overlap</p><p>Plenty of add-ons now duplicate features you already pay for in Salesforce or Microsoft 365.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="band" id="services">
+  <section class="band-wash" id="covers">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">What we do</p>
-        <h2 class="display h2">One review, one fixed price, then the bill stops.</h2>
-        <p class="sec-sub">Three ways to work with us, in the order most teams use them.</p>
-      </div>
-      <div class="offers">
-        <article class="offer">
-          <p class="eyebrow-sm">Start here</p>
-          <h3 class="offer-name">Renewal review</h3>
-          <p class="offer-price display">Free</p>
-          <p class="offer-body">Thirty minutes on what renews in the next six months. Within two business days you get a written keep, replace, or renegotiate call on each tool, with the math and a fixed quote.</p>
-          <p class="offer-foot">Two reviews a week, booked in order.</p>
-        </article>
-        <article class="offer">
-          <p class="eyebrow-sm">Then</p>
-          <h3 class="offer-name">Sunset build</h3>
-          <p class="offer-price display">About half of one year's license</p>
-          <p class="offer-body">We rebuild what you actually use inside Salesforce, move the data, uninstall the package cleanly, and send the non-renewal notice.</p>
-          <p class="offer-foot">$2,500 minimum. 50% to start, 50% at go-live. You own everything we build.</p>
-        </article>
-        <article class="offer">
-          <p class="eyebrow-sm">After go-live</p>
-          <h3 class="offer-name">Care plan</h3>
-          <p class="offer-price display">From $300 a month</p>
-          <p class="offer-body">Fixes, small changes, and a check of every Salesforce release against what we built. Replies by the next business day.</p>
-          <p class="offer-foot">Month to month. Cancel any time.</p>
-        </article>
-      </div>
-      <div class="pilot">
-        <p class="pill pill-accent">Pilot</p>
-        <div>
-          <h3 class="pilot-title">AI without the add-on</h3>
-          <p>Document reading, summaries, and routing built on the model APIs inside your org. You pay cents per document instead of another per-seat license.</p>
-        </div>
-        <a class="link-arrow" href="#contact">Ask about a pilot</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="band-wash" id="retire">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow">Common sunsets</p>
-        <h2 class="display h2">What we retire most, and what replaces it.</h2>
+        <p class="eyebrow">What native Salesforce covers</p>
+        <h2 class="display h2">Most quoting needs are already in your org.</h2>
+        <p class="sec-sub">Standard Sales Cloud features we build on, and the CPQ job each one takes over.</p>
       </div>
       <div class="retire-grid">
         <article class="retire">
-          <h3>Backup and archive add-ons</h3>
-          <p class="ex">Paid backup, restore, and archiving apps.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Scheduled backups that land in storage you own, plus a restore you've actually tested.</p>
+          <h3>Products and price books</h3>
+          <p class="ex">Your catalog and list prices, with separate price books by region, channel, or customer type.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>The CPQ product catalog and list pricing</p>
         </article>
         <article class="retire">
-          <h3>Work-management tools bolted on</h3>
-          <p class="ex">Spreadsheet trackers, project boards, and intake forms that live outside the CRM.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Request queues, approvals, and dashboards inside Salesforce, next to the customer record.</p>
+          <h3>Quotes with line items</h3>
+          <p class="ex">Discounts by line or for the whole quote, with subtotals and totals on every quote.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>The CPQ quote line editor</p>
         </article>
         <article class="retire">
-          <h3>Dedupe and data-quality apps</h3>
-          <p class="ex">Duplicate checkers that create warnings nobody clears.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Native matching and duplicate rules, with a merge queue someone owns. <a class="nw" href="/salesforce-duplicate-management/">How it works</a></p>
+          <h3>Branded quote PDFs</h3>
+          <p class="ex">Quote templates that turn a quote into a PDF you can email straight from the record.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>CPQ output documents</p>
         </article>
         <article class="retire">
-          <h3>File-sync connectors</h3>
-          <p class="ex">Third-party file storage wired into records.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>Salesforce Files plus the SharePoint or OneDrive you already pay for.</p>
+          <h3>Discount approvals</h3>
+          <p class="ex">An approval step when a discount crosses your threshold, routed to the right manager.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>CPQ approval rules</p>
         </article>
         <article class="retire">
-          <h3>Seats nobody logs into</h3>
-          <p class="ex">Marketing, data, and productivity licenses bought for a team that changed.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>A license review against last-login data, done before the renewal.</p>
+          <h3>Guided product selection</h3>
+          <p class="ex">A short screen flow that asks the right questions and adds the right products.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>CPQ guided selling and product rules</p>
         </article>
         <article class="retire">
-          <h3>Legacy systems kept for lookups</h3>
-          <p class="ex">An old CRM or tracker kept alive because the history lives there.</p>
-          <p class="swap"><span class="eyebrow-sm">Replaced with</span>History moved into Salesforce so the old system can be switched off.</p>
+          <h3>Quote and opportunity sync</h3>
+          <p class="ex">The quote your customer accepts keeps the opportunity&#x27;s products and amount in step.</p>
+          <p class="swap"><span class="eyebrow-sm">Takes over from</span>CPQ quote-to-opportunity sync</p>
         </article>
+      </div>
+      <div class="pilot">
+        <p class="pill pill-accent">Straight answer</p>
+        <div>
+          <h3 class="pilot-title">Where CPQ still earns its keep</h3>
+          <p>Deep bundles with nested options, multi-year quotes, contract amendments that prorate on their own, and usage-based pricing. If that&#x27;s your daily work, CPQ may be worth the license, and the review will tell you so.</p>
+        </div>
+        <a class="link-arrow" href="#contact">Ask which side you're on</a>
       </div>
     </div>
   </section>
@@ -643,9 +640,9 @@ section{scroll-margin-top:88px}
   <section class="band" id="approach">
     <div class="wrap approach">
       <div class="approach-intro">
-        <p class="eyebrow">Approach</p>
-        <h2 class="display h2">How a sunset works.</h2>
-        <p class="prose-p">Four steps, and most sunsets take a few weeks end to end. We work back from your notice date so the old tool is gone before it can renew.</p>
+        <p class="eyebrow">How it works</p>
+        <h2 class="display h2">Four steps, timed to your notice date.</h2>
+        <p class="prose-p">Most CPQ sunsets take a few weeks. Setups with many price rules take longer, so we start from the notice date and work back.</p>
         <p class="callout">The renewal date isn't your deadline. The notice date is.</p>
       </div>
       <ol class="steps">
@@ -653,15 +650,15 @@ section{scroll-margin-top:88px}
           <span class="step-n display">01</span>
           <div>
             <h3>Inventory</h3>
-            <p>Every installed package, connected app, and integration user, with its cost, owner, renewal date, and notice date.</p>
-            <p class="deliv"><span class="eyebrow-sm">You get</span>An inventory sheet you keep using after we're done.</p>
+            <p>Every product rule, price rule, template, and approval in your CPQ setup, and who actually uses each one.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>An inventory of your quoting setup that you keep after we&#x27;re done.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-n display">02</span>
           <div>
             <h3>Decide</h3>
-            <p>A keep, replace, or renegotiate call on each tool. Replacements come with a fixed quote and the month they pay for themselves.</p>
+            <p>What moves to standard Quotes, what gets simpler, and anything worth keeping. Every call comes with a fixed quote.</p>
             <p class="deliv"><span class="eyebrow-sm">You get</span>A written recommendation and a fixed quote.</p>
           </div>
         </li>
@@ -669,15 +666,15 @@ section{scroll-margin-top:88px}
           <span class="step-n display">03</span>
           <div>
             <h3>Rebuild</h3>
-            <p>Built in a sandbox first. Data moves with a reconciliation report, so every record is accounted for.</p>
-            <p class="deliv"><span class="eyebrow-sm">You get</span>A working build your team signs off on.</p>
+            <p>Products, price books, approvals, and templates built in a sandbox first. Open quotes move over with a reconciliation report.</p>
+            <p class="deliv"><span class="eyebrow-sm">You get</span>A quoting process your sales team signs off on.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-n display">04</span>
           <div>
             <h3>Retire</h3>
-            <p>Cutover, a clean uninstall, and the non-renewal notice sent before the deadline. We archive the old data before access ends.</p>
+            <p>Old quotes archived first, then cutover, a clean uninstall of the package, and the non-renewal sent before the deadline.</p>
             <p class="deliv"><span class="eyebrow-sm">You get</span>A closed contract and a smaller bill.</p>
           </div>
         </li>
@@ -685,120 +682,59 @@ section{scroll-margin-top:88px}
     </div>
   </section>
 
-  <section class="band-red" id="results">
-    <div class="wrap">
-      <p class="eyebrow">Track record</p>
-      <h2 class="display h2">We did this in a live org before we offered it to anyone.</h2>
-      <div class="stats">
-        <div class="stat"><p class="stat-n display">$16K<span>/yr</span></p><p class="stat-d">Backup and archive subscription replaced with a native backup the company owns.</p></div>
-        <div class="stat"><p class="stat-n display">18</p><p class="stat-d">Spreadsheet workflows moved into Salesforce requests.</p></div>
-        <div class="stat"><p class="stat-n display">3</p><p class="stat-d">Add-on packages retired: dedupe, field service, and file sync.</p></div>
-        <div class="stat"><p class="stat-n display">$40K+<span>/yr</span></p><p class="stat-d">Overlapping software spend identified in a single org.</p></div>
-      </div>
-      <p class="fine">Programs a co-founder led in-house at a mid-market B2B company, 2025 to 2026. Figures rounded. Company not named.</p>
-    </div>
-  </section>
-
-  <section class="band-wash" id="tools">
+  <section class="band-wash" id="faq">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Tools</p>
-        <h2 class="display h2">Run your own numbers.</h2>
-        <p class="sec-sub">Two checks we run on every review call. Everything you type stays in your browser.</p>
+        <p class="eyebrow">Questions</p>
+        <h2 class="display h2">Before you book.</h2>
       </div>
-      <div class="tools">
-        <form class="tool" id="calc" novalidate>
-          <h3 class="tool-title">What would a sunset cost?</h3>
-          <div class="calc-body">
-            <div class="calc-in">
-          <label for="calc-annual">What the tool costs per year</label>
-          <div class="money"><span aria-hidden="true">$</span><input id="calc-annual" type="number" inputmode="numeric" min="0" step="100" value="16000"></div>
-          <label class="check" for="calc-care"><input id="calc-care" type="checkbox">Add a care plan after go-live ($300 a month)</label>
-          <div class="bars" aria-hidden="true">
-            <div class="bar-row"><span class="bar-label">Keep paying for three years</span><span class="bar-val" id="b-keep-v">$48,000</span><span class="bar"><span class="bar-fill keep" id="b-keep" style="width:100%"></span></span></div>
-            <div class="bar-row"><span class="bar-label" id="b-cut-l">Sunset it once</span><span class="bar-val" id="b-cut-v">$8,000</span><span class="bar"><span class="bar-fill cut" id="b-cut" style="width:16.7%"></span></span></div>
-          </div>
-            </div>
-          <dl class="out">
-            <div><dt>Sunset build, fixed price</dt><dd id="o-fee">$8,000</dd></div>
-            <div><dt>At signing / at go-live</dt><dd id="o-split">$4,000 / $4,000</dd></div>
-            <div><dt>Saved in year one</dt><dd id="o-y1">$8,000</dd></div>
-            <div><dt>Saved over three years</dt><dd id="o-y3" class="big">$40,000</dd></div>
-            <div><dt>Pays for itself in</dt><dd id="o-pay">6 months</dd></div>
-          </dl>
-          </div>
-          <p class="tool-note" id="calc-note">Estimate only. The fixed quote comes after your review.</p>
-        </form>
-        <form class="tool" id="notice" novalidate>
-          <h3 class="tool-title">When is your notice due?</h3>
-          <label for="nd-renew">Renewal date</label>
-          <input id="nd-renew" type="date" value="2026-12-12">
-          <label for="nd-window">Notice window in the contract</label>
-          <select id="nd-window">
-            <option value="30">30 days</option>
-            <option value="45">45 days</option>
-            <option value="60" selected>60 days</option>
-            <option value="90">90 days</option>
-          </select>
-          <div class="due" aria-live="polite">
-            <p class="eyebrow-sm">Send written notice by</p>
-            <p class="due-date display" id="nd-due">Oct 13, 2026</p>
-            <p class="due-left" id="nd-left">9 days from today.</p>
-          </div>
-          <p class="tool-note">Check the order form and the master terms. The notice clause can live in either, and they don't always agree.</p>
-        </form>
+      <div class="faq">
+        <details>
+          <summary>Do we need a different Salesforce edition?</summary>
+          <p>Standard Quotes come with Sales Cloud. Some approval and automation features depend on your edition, so we check yours on the review call before we quote.</p>
+        </details>
+        <details>
+          <summary>What happens to our old CPQ quotes?</summary>
+          <p>We export them before anything is uninstalled. The history stays on each opportunity as data, as PDFs, or both. Your choice.</p>
+        </details>
+        <details>
+          <summary>How long does it take?</summary>
+          <p>Most CPQ sunsets take a few weeks end to end. We plan from your notice date so the old license can&#x27;t renew.</p>
+        </details>
+        <details>
+          <summary>What does it cost?</summary>
+          <p>About half of one year&#x27;s CPQ license, as a fixed price agreed before you commit, with a $2,500 minimum. Half at signing, half at go-live.</p>
+        </details>
+        <details>
+          <summary>Who owns what you build?</summary>
+          <p>You do. Everything lives in your org and is documented, with no package of ours to license.</p>
+        </details>
       </div>
     </div>
   </section>
 
-  <section class="band" id="about">
-    <div class="wrap about">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2 class="display h2">A small team, on purpose.</h2>
-        <p class="prose-p">The people on your review call are the people who do the work.</p>
-        <div class="ai-note">
-          <p class="eyebrow-sm">How we use AI</p>
-          <p>We use AI to read org metadata and draft code faster. A person reviews every change before it reaches your org, and client work runs on accounts where your data isn't used to train models.</p>
-        </div>
-      </div>
-      <div class="creds">
-        <p class="eyebrow-sm">Credentials</p>
-        <ul class="cred-list">
-          <li><span class="cred-k">Certified</span><span>Salesforce Platform Developer I, Administrator, and Business Analyst</span></li>
-          <li><span class="cred-k">Built</span><span>A production Salesforce platform, run in-house, with quoting, pricing, ERP integration, and data migration</span></li>
-          <li><span class="cred-k">Big Four</span><span>Two years on PwC's global Salesforce team</span></li>
-          <li><span class="cred-k">Retired</span><span>Backup, archive, dedupe, field service, and file-sync add-ons, plus 18 spreadsheet workflows</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="band-wash" id="contact">
+  <section class="band" id="contact">
     <div class="wrap contact">
       <div>
         <p class="eyebrow">Free renewal review</p>
-        <h2 class="display h2">Tell us what's renewing.</h2>
-        <p class="prose-p">We'll reply within one business day with times for a 30-minute call. We take two reviews a week, so each one gets real attention.</p>
+        <h2 class="display h2">Tell us when CPQ renews.</h2>
+        <p class="prose-p">We'll reply within one business day with times for a 30-minute call. Bring the order form if you have it, since the notice clause is usually in there.</p>
         <div class="email-box">
           <span class="eyebrow-sm">Or email us</span>
           <span class="email" id="email-text">hello@nimbyconsulting.com</span>
           <button type="button" class="copy" id="copy-email">Copy</button>
         </div>
-        <div class="referral" id="referrals">
-          <p class="eyebrow-sm">Referral partners</p>
-          <p>Bookkeepers, fractional CFOs, and IT providers see these bills first. Refer a sunset and earn 10% of the first project.</p>
-        </div>
       </div>
       <form class="intake" id="intake" novalidate>
-        <input type="hidden" name="_subject" value="New renewal review request">
+        <input type="hidden" name="_subject" value="New renewal review request (CPQ alternative page)">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="page" value="CPQ alternative">
         <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
-        <div class="field"><label for="f-tool">What's renewing?</label><input id="f-tool" name="tool" placeholder="For example: a backup add-on, project boards" required></div>
+        <div class="field"><label for="f-tool">What's renewing?</label><input id="f-tool" name="tool" placeholder="For example: Salesforce CPQ, 40 seats" required></div>
         <div class="field half"><label for="f-cost">Roughly what it costs per year</label><input id="f-cost" name="cost" inputmode="numeric" placeholder="$"></div>
         <div class="field half"><label for="f-date">Renewal date, if you know it</label><input id="f-date" name="renewal" type="date"></div>
         <div class="field"><label for="f-notes">Anything else we should know?</label><textarea id="f-notes" name="notes" rows="4"></textarea></div>
@@ -812,7 +748,7 @@ section{scroll-margin-top:88px}
 <footer class="foot">
   <div class="wrap foot-grid">
     <div class="foot-brand">
-      <a class="brand" href="#top" aria-label="Nimby Consulting home">
+      <a class="brand" href="/" aria-label="Nimby Consulting home">
         <svg class="mark" viewBox="0 0 46 29" aria-hidden="true"><defs><clipPath id="mk-disc-f"><circle cx="23" cy="23" r="17"/></clipPath><clipPath id="mk-hz-f"><rect x="0" y="0" width="46" height="23"/></clipPath></defs><g clip-path="url(#mk-hz-f)"><g clip-path="url(#mk-disc-f)"><rect class="m1" x="0" y="6" width="46" height="8"/><rect class="m2" x="0" y="15.6" width="46" height="3.6"/><rect class="m3" x="0" y="20.6" width="46" height="2.4"/></g></g><rect class="mh" x="1" y="24.6" width="44" height="2.6"/></svg>
         <span class="wordmark">nimby</span>
       </a>
@@ -820,18 +756,15 @@ section{scroll-margin-top:88px}
     </div>
     <nav aria-label="Services">
       <p class="foot-h">Services</p>
-      <a href="#services">Renewal review</a>
-      <a href="#services">Sunset build</a>
-      <a href="#services">Care plan</a>
-      <a href="#retire">What we retire</a>
+      <a href="/#services">Renewal review</a>
+      <a href="/#services">Sunset build</a>
+      <a href="/#services">Care plan</a>
+      <a href="/#retire">What we retire</a>
+    </nav>
+    <nav aria-label="Alternatives">
+      <p class="foot-h">Alternatives</p>
       <a href="/salesforce-cpq-alternative/">CPQ alternative</a>
       <a href="/salesforce-duplicate-management/">Duplicate management</a>
-    </nav>
-    <nav aria-label="Company">
-      <p class="foot-h">Company</p>
-      <a href="#about">About</a>
-      <a href="#referrals">Referral partners</a>
-      <a href="#contact">Contact</a>
     </nav>
     <div class="foot-contact">
       <p class="foot-h">Contact</p>
@@ -850,16 +783,7 @@ section{scroll-margin-top:88px}
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-  var DAY = 86400000;
   var LIVE = /(^|\.)nimbyconsulting\.com$|\.vercel\.app$/.test(location.hostname);
-  function fmtDate(d){ return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
-  function today(){ var n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); }
-  function addDays(d, n){ return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n); }
-  // Date-only strings parse as UTC midnight (one day early in US time zones), so build local dates by hand.
-  function parseYMD(s){ var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null; }
-  function toYMD(d){ return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
-  function daysBetween(a, b){ return Math.round((b - a) / DAY); }
 
   // Mobile menu
   var menuBtn = $('menu-btn'), nav = $('site-nav');
@@ -870,74 +794,6 @@ section{scroll-margin-top:88px}
   nav.addEventListener('click', function(e){
     if (e.target.closest('a')) { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
   });
-
-  // Example for the notice-date check: a tool that renews 69 days out
-  var t = today();
-  var heroRenew = addDays(t, 69);
-
-  // Notice-date check
-  var ndRenew = $('nd-renew'), ndWin = $('nd-window');
-  ndRenew.value = toYMD(heroRenew);
-  function updateNotice(){
-    var r = parseYMD(ndRenew.value), out = $('nd-due'), left = $('nd-left');
-    if (!r) { out.textContent = 'Pick a date'; left.textContent = 'Enter the renewal date from your order form.'; left.classList.remove('late'); return; }
-    var due = addDays(r, -parseInt(ndWin.value, 10));
-    var n = daysBetween(t, due);
-    out.textContent = fmtDate(due);
-    left.classList.toggle('late', n < 0);
-    if (n > 1) left.textContent = n + ' days from today.';
-    else if (n === 1) left.textContent = 'Tomorrow.';
-    else if (n === 0) left.textContent = 'Today. Send it now.';
-    else left.textContent = 'That was ' + (-n) + (n === -1 ? ' day' : ' days') + ' ago. Ask the vendor whether they will accept late notice, or plan for the next term.';
-  }
-  ndRenew.addEventListener('input', updateNotice);
-  ndRenew.addEventListener('change', updateNotice);
-  ndWin.addEventListener('change', updateNotice);
-  updateNotice();
-
-  // Sunset cost estimator: fee = max($2,500, 50% of one year's license)
-  var RATE = 0.5, FLOOR = 2500, CARE = 300;
-  var annualEl = $('calc-annual'), careEl = $('calc-care');
-  function setText(id, v){ $(id).textContent = v; }
-  function updateCalc(){
-    var annual = Math.max(0, Math.min(10000000, Number(annualEl.value) || 0));
-    var care = careEl.checked ? CARE : 0;
-    var fee = Math.max(FLOOR, Math.round(annual * RATE));
-    var y1 = annual - fee - care * 12;
-    var y3 = annual * 3 - fee - care * 36;
-    var monthlyNet = annual / 12 - care;
-    var pay = monthlyNet > 0 ? fee / monthlyNet : Infinity;
-    setText('o-fee', money.format(fee));
-    setText('o-split', money.format(fee / 2) + ' / ' + money.format(fee / 2));
-    setText('o-y1', money.format(y1));
-    setText('o-y3', money.format(y3));
-    if (isFinite(pay)) { var p = Math.round(pay * 10) / 10; setText('o-pay', p + (p === 1 ? ' month' : ' months')); }
-    else setText('o-pay', 'Does not pay back');
-    var keep = annual * 3, cut = fee + care * 36, max = Math.max(keep, cut) || 1;
-    $('b-keep').style.width = (keep / max * 100) + '%';
-    $('b-cut').style.width = (cut / max * 100) + '%';
-    setText('b-keep-v', money.format(keep));
-    setText('b-cut-v', money.format(cut));
-    setText('b-cut-l', care ? 'Sunset it, plus three years of care' : 'Sunset it once');
-    setText('calc-note', y1 < 0
-      ? 'At this price a sunset pays back after year one. Renegotiating may be the better first move, and the review will tell you which.'
-      : 'Estimate only. The fixed quote comes after your review.');
-  }
-  annualEl.addEventListener('input', updateCalc);
-  careEl.addEventListener('change', updateCalc);
-  $('calc').addEventListener('submit', function(e){ e.preventDefault(); });
-  $('notice').addEventListener('submit', function(e){ e.preventDefault(); });
-  updateCalc();
-
-  // Article illustration: October 2026 starts on a Thursday
-  var grid = $('cal-grid');
-  if (grid) {
-    var frag = document.createDocumentFragment(), i, s;
-    'SMTWTFS'.split('').forEach(function(d){ s = document.createElement('span'); s.className = 'cal-dow'; s.textContent = d; frag.appendChild(s); });
-    for (i = 0; i < 4; i++) { s = document.createElement('span'); s.className = 'cal-day empty'; frag.appendChild(s); }
-    for (i = 1; i <= 31; i++) { s = document.createElement('span'); s.className = 'cal-day' + (i === 13 ? ' is-due' : ''); s.textContent = i; frag.appendChild(s); }
-    grid.appendChild(frag);
-  }
 
   // Copy email
   function selectEmail(){
@@ -952,7 +808,7 @@ section{scroll-margin-top:88px}
     } catch (err) { selectEmail(); done(false); }
   });
 
-  // Intake form (mockup: validates, sends nothing)
+  // Intake form: delivers to hello@nimbyconsulting.com through FormSubmit on the live site
   $('intake').addEventListener('submit', function(e){
     e.preventDefault();
     var f = e.currentTarget, msg = $('form-msg');
@@ -965,7 +821,7 @@ section{scroll-margin-top:88px}
     msg.hidden = false;
     if (missing.length) {
       msg.className = 'form-msg err';
-      msg.textContent = 'Add your name, a work email, and what’s renewing, then send again.';
+      msg.textContent = 'Add your name, a work email, and what\u2019s renewing, then send again.';
       missing[0].focus();
       return;
     }
